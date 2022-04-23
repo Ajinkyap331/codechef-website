@@ -1,0 +1,8 @@
+.radial{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width : 400px;
+    background: radial-gradient(50% 50% at 50% 50%, #5A4820 32.81%, rgba(90, 72, 32, 0) 100%);
+}

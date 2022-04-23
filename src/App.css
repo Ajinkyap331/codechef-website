@@ -1,6 +1,12 @@
 body{
+  color : white;
+  background: #0F1014;
+}
+
+.App{
   height: 100vh;
   width: 100vw;
-  color : white;
-  background: linear-gradient(180deg, rgba(15, 16, 20, 0.94) 76.44%, rgba(15, 16, 20, 0.8554) 87.77%, rgba(15, 16, 20, 0.6486) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
