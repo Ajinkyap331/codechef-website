@@ -1,6 +1,19 @@
-.home{
-    height: 90vh;
-    width: 85vw;
-    background: #1F212A;
-    border-radius: 16px;
+.home-center{
+    display: flex;
+    align-items: center;
+    gap : 20px;
+    padding: 0 20px;
+    justify-content: space-evenly;
+}
+
+.home-leftcontent{
+    transform: rotateZ(90deg);
+    white-space: nowrap;
+    height: 10px;
+    font-size: 25px;
+    width : 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap : 10px;
 }

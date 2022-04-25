@@ -3,12 +3,22 @@ import './Home.css'
 import { Navbar } from '../Components/Navbar'
 import { RadialBG } from '../Components/RadialBG'
 import { RightData } from '../Components/RightData'
+import CodeChefLogo from '../Images/3.png'
 export const Home = () => {
     return (
         <div className='home'>
-            <Navbar/>
-            <RadialBG/>
-            <RightData/>
+            <Navbar />
+            <div className='home-center'>
+                <div className='home-leftcontent'>
+                    <p style={{ color: "#6D8219" }}>Code</p>
+                    <p >Eat</p>
+                    <p style={{ color: "#6D8219" }} >Sleep</p>
+                    <p>Repeat</p>
+                </div>
+                <RadialBG />
+                <RightData />
+            </div>
+            {/* <img style = {{height : "200px"}}src = {CodeChefLogo}></img> */}
         </div>
     )
 }

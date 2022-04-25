@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+
+.right-heading{
+    font-family: 'Iceberg', cursive;
+}
+
+.H1{
+    font-size: 60px;
+}
+
+.H2{
+    font-size: 45px;
+}
+
+.home-right{
+    width: 600px;
+}
+
+.home-right > div{
+    display: flex;
+    gap : 10px;
+}

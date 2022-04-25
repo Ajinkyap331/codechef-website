@@ -5,4 +5,11 @@
     gap : 50px;
     justify-content: end;
     align-items: center;
+    font-size: 22px;
 }
+
+.home-navbar > section > a{
+    text-decoration: none;
+    color : white;
+    cursor: pointer;
+}   

@@ -1,12 +1,14 @@
 body{
   color : white;
-  background: #0F1014;
+  background: #0d1117;
 }
 
 .App{
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+p{
+  margin: 0;
+  padding: 0;
 }
