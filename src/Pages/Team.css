@@ -1,0 +1,52 @@
+.team-heading{
+    width : 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding : 30px 0;
+    font-size: 20px;
+}
+
+
+.team-body{
+    display: flex;
+    
+}
+
+.team-president{
+    width: 30vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+    font-size: 30px;
+}
+
+
+.team-teams{
+    width: 70vw;
+    height: 80vh;
+    display: flex;
+    gap : 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-teams > div{
+    display: flex;
+    gap : 20px;
+    justify-content: center;
+}
+.team-teams > div > section{
+    cursor: pointer;
+}
+
+.team-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 10px;
+}

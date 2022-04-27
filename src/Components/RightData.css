@@ -20,3 +20,21 @@
     display: flex;
     gap : 10px;
 }
+
+.home-logos{
+    display: flex;
+    width : 25vw;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+.home-logo{
+    text-decoration: none;
+    color : white
+}
+
+.home-logos-outer{
+    min-width : 30vw;
+    display: flex;
+    justify-content: center;
+}

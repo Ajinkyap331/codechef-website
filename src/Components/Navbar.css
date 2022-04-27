@@ -13,3 +13,7 @@
     color : white;
     cursor: pointer;
 }   
+
+.home-navbar > section > a:hover{
+    color: #6D8219
+}

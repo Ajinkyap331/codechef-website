@@ -18,7 +18,8 @@ export const Home = () => {
                 <RadialBG />
                 <RightData />
             </div>
-            {/* <img style = {{height : "200px"}}src = {CodeChefLogo}></img> */}
+            <img className="codechef-logo" src={CodeChefLogo}></img>
+            <p className="designer">Designed with ❤️ By Ajinkya Patil</p>
         </div>
     )
 }

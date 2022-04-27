@@ -9,11 +9,25 @@
 .home-leftcontent{
     transform: rotateZ(90deg);
     white-space: nowrap;
-    height: 10px;
+    height: 600px;
     font-size: 25px;
     width : 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap : 10px;
+}
+
+.codechef-logo{
+    position: absolute;
+    bottom: 0;  
+    height: 200px;
+    left : 30px;
+}
+
+.designer{
+    padding : 20px;
+    position: absolute;
+    bottom: 0;
+    right : 0;
 }

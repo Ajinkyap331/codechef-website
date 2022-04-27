@@ -2,9 +2,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 500px;
+    min-width : 500px;
+    transition: 1s;
+    background: radial-gradient(50% 50% at 50% 50%, #6D8219 12.81%, rgba(90, 72, 32, 0) 100%);
+}
+
+.radial:hover{
     min-height: 600px;
     min-width : 600px;
-    background: radial-gradient(50% 50% at 50% 50%, #6D8219 12.81%, rgba(90, 72, 32, 0) 100%);
+    transition: 1s;
 }
 
 .radial > img{
