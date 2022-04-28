@@ -3,8 +3,11 @@ import './RadialBG.css'
 import ChapterLogo from '../Images/2.png'
 export const RadialBG = () => {
   return (
-    <div className='radial'>
-        <img src = {ChapterLogo}></img>
+    <div className='radial-outer'>
+      <div className='radial'>
+        <img src={ChapterLogo}></img>
+      </div>
     </div>
+
   )
 }

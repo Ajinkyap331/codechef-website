@@ -2,19 +2,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 500px;
-    min-width : 500px;
+    height: 500px;
+    width : 500px;
     transition: 1s;
     background: radial-gradient(50% 50% at 50% 50%, #6D8219 12.81%, rgba(90, 72, 32, 0) 100%);
 }
 
 .radial:hover{
-    min-height: 600px;
-    min-width : 600px;
+    height: 600px;
+    width : 600px;
     transition: 1s;
 }
 
 .radial > img{
     height: 400px;
     width : 400px;
+}
+
+.radial-outer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width : 600px;
 }
