@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import './Team.css'
-import { Avatar } from '@mui/material'
 import { Navbar } from '../Components/Navbar'
 import { Teams } from '../Data/Data'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import Rahul from '../Images/Rahul Badgujar.jpg'
+import Rahul from '../Images/Rahul Badgujar.webp'
 import { TeamAvatar } from '../Components/TeamAvatar'
 
 

@@ -3,7 +3,7 @@ import './Home.css'
 import { Navbar } from '../Components/Navbar'
 import { RadialBG } from '../Components/RadialBG'
 import { RightData } from '../Components/RightData'
-import CodeChefLogo from '../Images/3.png'
+import CodeChefLogo from '../Images/3.webp'
 export const Home = () => {
     return (
         <div className='home'>
