@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Team.css'
 import { Navbar } from '../Components/Navbar'
 import { Teams } from '../Data/Data'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import Rahul from '../Images/Rahul Badgujar.webp'
 import { TeamAvatar } from '../Components/TeamAvatar'
+import { RadialBGR } from '../Components/RadialBGR';
 
 
 export const Team = () => {
@@ -18,20 +18,20 @@ export const Team = () => {
       <div className="team-body">
         <div className="team-president">
           <p>President</p>
-          <TeamAvatar photo={Rahul} size={250} />
+          <RadialBGR type = "avatar"/>
           <p>Rahul Badgujar</p>
         </div>
         <div className='team-teams'>
           <div className="team-select">
             {selected > 0 ? <ArrowCircleLeftIcon onClick={() => setselected(selected => selected - 1)} /> : <div style={{ width: "23px" }}></div>}
             <div>
-              <section style = {{color : "#6D8219"}}>{team[selected]}</section>
-              <section > TEAM</section>
+              <section style = {{color : "#6D8219", fontSize : "25px"}}>{team[selected]}</section>
+              <section style = {{fontSize : "25px"}}> TEAM</section>
             </div>
             {selected < 3 ? <ArrowCircleRightIcon onClick={() => setselected(selected => selected + 1)} /> : <div style={{ width: "23px" }}></div>}
           </div>
           <div className="team-card">
-            <TeamAvatar photo={Teams[team[selected]].lead.photo} size={200} selected={selected} />
+            <TeamAvatar photo={Teams[team[selected]].lead.photo} size={200} selected={selected}  />
             <p>{Teams[team[selected]].lead.name}</p>
           </div>
           <div>

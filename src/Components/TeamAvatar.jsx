@@ -18,7 +18,6 @@ export const TeamAvatar = ({ photo, size, selected }) => {
                 :
                 <Avatar src={loading} sx={{ width: 50, height: 50 }} onLoad={() => setload(true)} />
             }
-
         </div>
     )
 }

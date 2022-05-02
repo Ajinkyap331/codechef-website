@@ -1,7 +1,6 @@
 import './App.css';
 import { Home } from './Pages/Home';
 import { Team } from './Pages/Team';
-import { Register } from './Pages/Register';
 import { RTCP } from './Pages/RTCP';
 import { Events } from './Pages/Events';
 import { Login } from './Pages/Login';
@@ -15,7 +14,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/team" element={<Team />} />
-          <Route exact path="/register" element={<Register />} />
           <Route exact path="/events" element={<Events />} />
           <Route exact path="/roadmap" element={<RTCP />} />
           <Route exact path="/login" element={<Login />} />

@@ -1,18 +1,23 @@
+@keyframes radius {
+    0% {width : 450px; height: 450px;}
+    50% {width : 550px; height : 550px;}
+    100% {width : 450px; height: 450px;}
+}
+
 .radial{
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 500px;
-    width : 500px;
+    justify-content: center;    
+    height: 450px;
+    width : 450px;
     transition: 1s;
-    background: radial-gradient(50% 50% at 50% 50%, #6D8219 12.81%, rgba(90, 72, 32, 0) 100%);
+    animation-name: radius;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    background: radial-gradient(50% 50% at 50% 50%,  #120EEC 12.81%, rgba(90, 72, 32, 0) 100%);
 }
 
-.radial:hover{
-    height: 600px;
-    width : 600px;
-    transition: 1s;
-}
+
 
 .radial > img{
     height: 400px;
@@ -23,6 +28,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 600px;
-    width : 600px;
+    min-height: 550px;
+    min-width : 550px;
+}
+
+
+.radial1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width : 400px;
+    background: radial-gradient(50% 50% at 50% 50%,  #120EEC 12.81%, rgba(90, 72, 32, 0) 100%);
+}
+
+@media screen and (max-width: 680px){
+    .radial-outer{
+        min-height: 350px;
+        min-width : 350px;
+    }
+
+    @keyframes radius {
+        0% {width : 250px; height: 250px;}
+        50% {width : 350px; height : 350px;}
+        100% {width : 250px; height: 250px;}
+    }
+
+    .radial > img{
+        height: 200px;
+        width : 200px;
+    }
 }

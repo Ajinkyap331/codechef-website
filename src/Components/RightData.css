@@ -13,7 +13,7 @@
 }
 
 .home-right{
-    width: 600px;
+    width: 40vw;
 }
 
 .home-right > div{
@@ -23,7 +23,7 @@
 
 .home-logos{
     display: flex;
-    width : 25vw;
+    width : 20vw;
     justify-content: space-evenly;
     padding-top: 20px;
 }
@@ -33,8 +33,33 @@
     color : white
 }
 
-.home-logos-outer{
+/* .home-logos-outer{
     min-width : 30vw;
     display: flex;
     justify-content: center;
+} */
+
+@media screen and (max-width: 680px) {
+    .H1{
+        font-size: 40px;
+    }
+    
+    .H2{
+        font-size: 25px;
+    }
+
+    .home-right > div{
+        justify-content: center;
+    }
+
+    .home-logos{
+        display: flex;
+        width : 40vw;
+        justify-content: space-evenly;
+        padding-top: 20px;
+    }
+    .home-right{
+        width: 80vw;
+    }
+    
 }
