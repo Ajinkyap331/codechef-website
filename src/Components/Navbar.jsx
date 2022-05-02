@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import './Navbar.css'
+import React from 'react'
 import { Avatar } from '@mui/material'
 import { Link } from 'react-router-dom'
 

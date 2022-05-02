@@ -5,6 +5,13 @@ import { RTCP } from './Pages/RTCP';
 import { Events } from './Pages/Events';
 import { Login } from './Pages/Login';
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
+import './Styles/Home.css'
+import './Styles/Team.css'
+import './Styles/Navbar.css'
+import './Styles/RadialBG.css'
+import './Styles/RightData.css'
+
+
 
 
 function App() {

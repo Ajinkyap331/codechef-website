@@ -1,5 +1,4 @@
 import React from 'react'
-import './RadialBG.css'
 import { TeamAvatar } from './TeamAvatar'
 import Rahul from '../Images/Rahul Badgujar.webp'
 

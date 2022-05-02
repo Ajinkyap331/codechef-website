@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './Home.css'
 import { Navbar } from '../Components/Navbar'
 import { RadialBG } from '../Components/RadialBG'
 import { RightData } from '../Components/RightData'
@@ -9,6 +8,28 @@ export const Home = () => {
 
     const [loading, setloading] = useState(true)
 
+    const LeftContent =
+        <div className='home-leftcontent'>
+            <p style={{ color: "#000080" }}>Code</p>
+            <p >Eat</p>
+            <p style={{ color: "#000080" }} >Sleep</p>
+            <p>Repeat</p>
+        </div>
+
+    const Loader =
+        <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
+            <img alt = "" src={load} style={{ height: "70px" }} />
+            <p>Almost There</p>
+        </div>
+
+    const LogoCopyrightDesigner =
+        <>
+            <img alt = "" className="codechef-logo" src={CodeChefLogo}></img>
+            <div className="copy-desi">
+                <a rel="noreferrer" href="https://www.linkedin.com/in/ajinkya-patil-144709208/" target="_blank" className="designer">Designed with ❤️ By Ajinkya Patil</a>
+                <p className="copyright">Copyright @2022 PCCOE CodeChef Chapter All rights reserved</p>
+            </div>
+        </>
 
     return (
         <>
@@ -16,26 +37,14 @@ export const Home = () => {
                 <Navbar />
                 <div className='home-center'>
                     <section>
-                        <div className='home-leftcontent'>
-                            <p style={{ color: "#000080" }}>Code</p>
-                            <p >Eat</p>
-                            <p style={{ color: "#000080" }} >Sleep</p>
-                            <p>Repeat</p>
-                        </div>
+                        {LeftContent}
                         <RadialBG sl={setloading} />
                     </section>
                     <RightData />
                 </div>
-                <img className="codechef-logo" src={CodeChefLogo}></img>
-                <div className="copy-desi">
-                    <a rel="noreferrer" href="https://www.linkedin.com/in/ajinkya-patil-144709208/" target="_blank" className="designer">Designed with ❤️ By Ajinkya Patil</a>
-                    <p className="copyright">@2022 PCCOE CodeChef Chapter All rights reserved</p>
-                </div>
+                {LogoCopyrightDesigner}
             </div>
-            {loading && <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position : "absolute", zIndex : "1", top : 0, background : "#0d1117" }}>
-                <img src={load} style={{ height: "70px" }} />
-                <p>Almost There</p>
-            </div>}
+            {loading && Loader}
         </>
 
 

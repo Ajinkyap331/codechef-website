@@ -3,7 +3,7 @@ import Ajinkya from '../Images/Ajinkya Patil.webp'
 import Pranav from '../Images/pranav.webp'
 import Geetika from '../Images/Geetika Rawal .webp'
 import Ashish from '../Images/Ashish Dhane.webp'
-import Pradnya from '../Images/PradnyaDeshmukh.webp' 
+import Pradnya from '../Images/PradnyaDeshmukh.webp'
 import Kalpesh from '../Images/Kalpesh Somwanshi.webp'
 import Atharva from '../Images/Atharva Upasani.webp'
 import Siddharth from '../Images/Siddharth Shelke.webp'
@@ -46,3 +46,22 @@ export const Teams = {
         ]
     }
 }
+
+export const LogoSet = [
+    { 
+        href: "https://www.linkedin.com/company/codechef-pccoe-chapter/", 
+        img : "https://img.icons8.com/color/48/000000/linkedin.png"
+    },
+    { 
+        href: "https://www.facebook.com/pccoe.codechef.chapter/", 
+        img : "https://img.icons8.com/fluency/48/000000/facebook-new.png"
+    },
+    { 
+        href: "https://www.instagram.com/pccoe.codechef.chapter/", 
+        img : "https://img.icons8.com/fluency/48/000000/instagram-new.png"
+    },
+    { 
+        href: "https://twitter.com/CodechefPccoe", 
+        img : "https://img.icons8.com/fluency/48/000000/twitter.png"
+    }
+]
