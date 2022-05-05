@@ -9,7 +9,7 @@ export const Navbar = () => {
             <section> <Link to="/team">Team</Link></section>
             <section><Link to="/events">Event</Link></section>
             <section><Link to="/roadmap">Roadmap To CP</Link></section>
-            <section><Link to="/login"><Avatar src="" /></Link></section>
+            <section><Link to="/login">Login</Link></section>
         </div>
     )
 }

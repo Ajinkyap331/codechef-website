@@ -10,6 +10,7 @@ import './Styles/Team.css'
 import './Styles/Navbar.css'
 import './Styles/RadialBG.css'
 import './Styles/RightData.css'
+import './Styles/Login.css'
 
 
 

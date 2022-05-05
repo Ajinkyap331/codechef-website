@@ -10,9 +10,9 @@ export const Home = () => {
 
     const LeftContent =
         <div className='home-leftcontent'>
-            <p style={{ color: "#000080" }}>Code</p>
+            <p style={{ color: "#5de686" }}>Code</p>
             <p >Eat</p>
-            <p style={{ color: "#000080" }} >Sleep</p>
+            <p style={{ color: "#5de686" }} >Sleep</p>
             <p>Repeat</p>
         </div>
 
@@ -40,7 +40,7 @@ export const Home = () => {
                         {LeftContent}
                         <RadialBG sl={setloading} />
                     </section>
-                    <RightData />
+                    <RightData l = {loading}/>
                 </div>
                 {LogoCopyrightDesigner}
             </div>

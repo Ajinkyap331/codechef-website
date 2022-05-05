@@ -28,6 +28,11 @@
     padding-top: 20px;
 }
 
+
+.home-logos > a > img{
+    height: 48px;
+    width: 48px;
+}
 .home-logo{
     text-decoration: none;
     color : white
