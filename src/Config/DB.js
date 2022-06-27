@@ -15,6 +15,9 @@ if (!firebase.apps.length) {
 } else {
     firebase.app();
 }
+  
+// ajinkya.patil20@pccoepune.org
+// codechef#78
 
 export const login = async (email, password, sl) => {
     await firebase.auth().signInWithEmailAndPassword(email, password)

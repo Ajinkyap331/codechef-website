@@ -4,7 +4,11 @@ import { login } from '../Config/DB'
 import { Admin } from './Admin'
 export const Login = () => {
 
-  const [LoggedIn, SetLoggedIn] = useState("loggedout");
+  // const [LoggedIn, SetLoggedIn] = useState("loggedout");
+  const [LoggedIn, SetLoggedIn] = useState("loggedin");
+
+
+
   useEffect(() => {
     // db.collection("cities").doc("LA").set({
     //   name: "Los Angeles",
@@ -36,6 +40,7 @@ export const Login = () => {
       <input ref={password} />
       <button onClick={HandleLogin}>Login</button>
     </div>
+    
   const LoginJSX =
     <div className='login'>
       <p  >UserName : </p>

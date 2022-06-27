@@ -1,0 +1,10 @@
+.admin-events{
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid white;
+    width: max-content;
+}
+
+.admin-events > section{
+    padding: 10px;
+}

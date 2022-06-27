@@ -1,10 +1,11 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { Navbar } from '../Components/Navbar'
 import { Teams } from '../Data/Data'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import { TeamAvatar } from '../Components/TeamAvatar'
 import { RadialBGR } from '../Components/RadialBGR';
+import load from '../Images/807.gif'
 
 
 export const Team = () => {
@@ -22,8 +23,8 @@ export const Team = () => {
     <div className="team-select">
       {selected > 0 ? <ArrowCircleLeftIcon onClick={() => setselected(selected => selected - 1)} /> : <div style={{ width: "23px" }}></div>}
       <div>
-        <section style={{ color: "#6D8219", fontSize: "25px" }}>{team[selected]}</section>
-        <section style={{ fontSize: "25px" }}> TEAM</section>
+        <section style={{ color: "#5DE686" }}>{team[selected]}</section>
+        <section> TEAM</section>
       </div>
       {selected < 3 ? <ArrowCircleRightIcon onClick={() => setselected(selected => selected + 1)} /> : <div style={{ width: "23px" }}></div>}
     </div>
@@ -35,11 +36,11 @@ export const Team = () => {
     </div>
 
   const MembersMap =
-    <div>
+    <div className='team-membersmap'>
       {
         Teams[team[selected]].members.map((e) => {
           return (
-            <div key = {e.name} className="team-card">
+            <div key={e.name} className="team-card">
               <TeamAvatar photo={e.photo} size={100} selected={selected} />
               <p>{e.name}</p>
             </div>
@@ -48,11 +49,14 @@ export const Team = () => {
       }
     </div>
 
-
+  const Loader =
+    <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
+      <img alt="" src={load} style={{ height: "70px" }} />
+      <p>Almost There</p>
+    </div>
 
   return (
     <div>
-      <Navbar />
       <div className="team-body">
         {President}
         <div className='team-teams'>

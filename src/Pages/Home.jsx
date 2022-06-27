@@ -4,9 +4,9 @@ import { RadialBG } from '../Components/RadialBG'
 import { RightData } from '../Components/RightData'
 import CodeChefLogo from '../Images/3.webp'
 import load from '../Images/807.gif'
-export const Home = () => {
+export const Home = ({l,sl}) => {
 
-    const [loading, setloading] = useState(true)
+    
 
     const LeftContent =
         <div className='home-leftcontent'>
@@ -34,17 +34,16 @@ export const Home = () => {
     return (
         <>
             <div className='home'>
-                <Navbar />
                 <div className='home-center'>
                     <section>
                         {LeftContent}
-                        <RadialBG sl={setloading} />
+                        <RadialBG sl={sl} />
                     </section>
-                    <RightData l = {loading}/>
+                    <RightData l = {l}/>
                 </div>
                 {LogoCopyrightDesigner}
             </div>
-            {loading && Loader}
+            {l && Loader}
         </>
 
 

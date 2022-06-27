@@ -11,10 +11,11 @@
     text-decoration: none;
     color : white;
     cursor: pointer;
+    text-decoration-color: #5DE686;
 }   
 
 .home-navbar > section > a:hover{
-    color:  #00ffef;
+    color:  #5DE686;
 }
 
 @media screen and (max-width: 680px) {
