@@ -1,3 +1,4 @@
+import { Feedback } from '@mui/icons-material'
 import React, { useState, useRef, useEffect } from 'react'
 import { logout } from '../Config/DB'
 import { db } from '../Config/DB'
@@ -6,27 +7,38 @@ export const Admin = ({ sl }) => {
 
   const [AdminPage, setAdminPage] = useState("Main")
   const [Events, setEvent] = useState([])
+
   const name = useRef()
   const desc = useRef()
-  const datetime = useRef()
+  const date = useRef()
+  const upcoming = useRef()
 
   useEffect(() => {
     const e = []
     db.collection("events").get().then((docs) => {
       docs.forEach((doc) => {
-        console.log(doc.data())
         e.push(doc.data())
       })
     }).then(() => setEvent(e))
   }, [AdminPage])
 
-  const sendDataToFirebase = () => {
+  const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  const sendEventDataToFirebase = () => {
+    const id = getRandomInt(100000000, 1000000000)
     const data = {
+      id: id,
       name: name.current.value,
       desc: desc.current.value,
-      datetime: datetime.current.value
+      date: date.current.value,
+      upcoming: upcoming.current.checked,
     }
-    db.collection("events").doc(data.name).set(data).then(() => setAdminPage("Main"))
+    console.log(data)
+    db.collection("events").doc(id.toString()).set(data).then(() => setAdminPage("Main"))
   }
 
   const MainPage =
@@ -38,7 +50,7 @@ export const Admin = ({ sl }) => {
               <section>
                 <div>Name : {doc.name}</div>
                 <div>Description : {doc.desc}</div>
-                <div>DateTime : {doc.datetime}</div>
+                <div>Date : {doc.date}</div>
               </section>
             )
           })
@@ -53,8 +65,9 @@ export const Admin = ({ sl }) => {
       <section>AddEvent</section>
       <section >Name : <input ref={name} /></section>
       <section >Description : <input ref={desc} /></section>
-      <section >Date and Time : <input ref={datetime} /></section>
-      <button onClick={() => sendDataToFirebase()} >send</button>
+      <section >Date: <input type= "date" ref={date} /></section>
+      <section >upcoming : <input ref={upcoming} type="checkbox" /></section>
+      <button onClick={() => sendEventDataToFirebase()} >send</button>
       <button onClick={() => setAdminPage("Main")} >Back</button>
     </div>
 

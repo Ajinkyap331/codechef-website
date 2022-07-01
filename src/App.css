@@ -1,14 +1,19 @@
-body{
-  color : white;
+body {
+  color: white;
   background: #0d1117;
 }
 
-.App{
+.App {
   height: 91vh;
   width: 100vw;
 }
 
-p{
+p {
   margin: 0;
   padding: 0;
+}
+
+.stop-scrolling {
+  height: 80%;
+  overflow: hidden;
 }

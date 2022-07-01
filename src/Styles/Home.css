@@ -57,12 +57,14 @@
         right : 0;
         padding: 20px;
         width: calc(100vw - 40px);
+        text-align: center;
     }
 
     .codechef-logo{
         position: relative; 
         bottom: -50px;
         height: 100px;
+        text-align: center;
     }
   }
 

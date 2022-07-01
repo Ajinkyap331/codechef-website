@@ -34,7 +34,7 @@ export const RightData = ({ l }) => {
     const Info =
         <>
             <section className='right-heading H2'></section>
-            <section ref={disp} style={{ padding: "10px 0", fontSize: "16px", height : "110px", display : "flex", alignItems : "center", textAlign: "justify" }}></section>
+            <section ref={disp} style={{ padding: "10px 0", fontSize: "16px", height : "130px", display : "flex", alignItems : "center", textAlign: "justify", lineHeight : "150%" }}></section>
             <section style={{ padding: "10px 0", fontSize: "24px" }}>Let Us Help You To Get Started</section>
         </>
 

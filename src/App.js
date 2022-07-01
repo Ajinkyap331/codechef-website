@@ -7,6 +7,9 @@ import { RTCP } from './Pages/RTCP';
 import { Events } from './Pages/Events';
 import { Login } from './Pages/Login';
 import { Navbar } from './Components/Navbar';
+import { Event } from './Pages/Event';
+import { Register } from './Pages/Register';
+import { Feedback } from './Pages/Feedback';
 import './Styles/Home.css'
 import './Styles/Team.css'
 import './Styles/Navbar.css'
@@ -14,7 +17,6 @@ import './Styles/RadialBG.css'
 import './Styles/RightData.css'
 import './Styles/Login.css'
 import './Styles/Admin.css'
-
 
 
 function App() {
@@ -31,6 +33,9 @@ function App() {
           <Route exact path="/events" element={<Events />} />
           <Route exact path="/roadmap" element={<RTCP />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/event/:id" element={<Event />}></Route>
+          <Route exact path="/register/:id" element={<Register />}></Route>
+          <Route exact path="/feedback/:id" element={<Feedback />}></Route>
         </Routes>
       </div>
     </Router>

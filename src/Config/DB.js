@@ -15,7 +15,7 @@ if (!firebase.apps.length) {
 } else {
     firebase.app();
 }
-  
+
 // ajinkya.patil20@pccoepune.org
 // codechef#78
 
@@ -30,8 +30,19 @@ export const login = async (email, password, sl) => {
 }
 
 export const logout = async (sl) => {
-    firebase.auth().signOut().then(() => {
+    await firebase.auth().signOut().then(() => {
         sl("loggedout")
     })
 }
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
+export const loginG = async (setuser) => {
+    await firebase.auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+            setuser(result.user)
+        })
+}
+
 export const db = firebase.firestore();
