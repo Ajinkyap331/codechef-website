@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from './Pages/Home';
 import { Team } from './Pages/Team';
 import { RTCP } from './Pages/RTCP';
@@ -10,6 +10,7 @@ import { Navbar } from './Components/Navbar';
 import { Event } from './Pages/Event';
 import { Register } from './Pages/Register';
 import { Feedback } from './Pages/Feedback';
+import { EditEvent } from './Pages/EditEvent';
 import './Styles/Home.css'
 import './Styles/Team.css'
 import './Styles/Navbar.css'
@@ -28,7 +29,7 @@ function App() {
       <Navbar />
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Home  l = {loading} sl = {setloading}/>} />
+          <Route exact path="/" element={<Home l={loading} sl={setloading} />} />
           <Route exact path="/team" element={<Team />} />
           <Route exact path="/events" element={<Events />} />
           <Route exact path="/roadmap" element={<RTCP />} />
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/event/:id" element={<Event />}></Route>
           <Route exact path="/register/:id" element={<Register />}></Route>
           <Route exact path="/feedback/:id" element={<Feedback />}></Route>
+          <Route exact path="/edit/:id" element={<EditEvent />}></Route>
         </Routes>
       </div>
     </Router>

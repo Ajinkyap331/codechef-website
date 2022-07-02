@@ -40,6 +40,7 @@ export const Events = () => {
           }
         })
       }
+      <br /><br /><br /><br />
       Past Events
       {
         Events.map((doc) => {

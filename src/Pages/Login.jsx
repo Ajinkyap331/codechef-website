@@ -4,24 +4,14 @@ import { login } from '../Config/DB'
 import { Admin } from './Admin'
 export const Login = () => {
 
-  // const [LoggedIn, SetLoggedIn] = useState("loggedout");
-  const [LoggedIn, SetLoggedIn] = useState("loggedin");
+  const [LoggedIn, SetLoggedIn] = useState("loggedout");
+  // const [LoggedIn, SetLoggedIn] = useState("loggedin");
 
 
 
   useEffect(() => {
-    // db.collection("cities").doc("LA").set({
-    //   name: "Los Angeles",
-    //   state: "CA",
-    //   country: "USA"
-    // })
-    //   .then(() => {
-    //     console.log("Document successfully written!");
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error writing document: ", error);
-    //   });
-    // console.log(logindetails)
+    if (localStorage.getItem("user") === "XuO#hyN#SeF#TDd$EmU8cW!PK0BxcUBh")
+      SetLoggedIn("loggedin")
   }, [])
 
   const username = useRef();
@@ -29,6 +19,7 @@ export const Login = () => {
 
   const HandleLogin = () => {
     login(username.current.value, password.current.value, SetLoggedIn)
+    localStorage.setItem("user", "XuO#hyN#SeF#TDd$EmU8cW!PK0BxcUBh")
   }
 
   const Error =
@@ -40,7 +31,7 @@ export const Login = () => {
       <input ref={password} />
       <button onClick={HandleLogin}>Login</button>
     </div>
-    
+
   const LoginJSX =
     <div className='login'>
       <p  >UserName : </p>

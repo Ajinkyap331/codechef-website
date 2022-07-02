@@ -1,4 +1,4 @@
-import { Feedback } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 import React, { useState, useRef, useEffect } from 'react'
 import { logout } from '../Config/DB'
 import { db } from '../Config/DB'
@@ -8,12 +8,20 @@ export const Admin = ({ sl }) => {
   const [AdminPage, setAdminPage] = useState("Main")
   const [Events, setEvent] = useState([])
 
+  const [a, sa] = useState(true)
+
   const name = useRef()
   const desc = useRef()
   const date = useRef()
   const upcoming = useRef()
 
   useEffect(() => {
+
+    if (localStorage.getItem("user") !== "XuO#hyN#SeF#TDd$EmU8cW!PK0BxcUBh") {
+      sa(false)
+      return
+    }
+
     const e = []
     db.collection("events").get().then((docs) => {
       docs.forEach((doc) => {
@@ -37,7 +45,7 @@ export const Admin = ({ sl }) => {
       date: date.current.value,
       upcoming: upcoming.current.checked,
     }
-    console.log(data)
+    // console.log(data)
     db.collection("events").doc(id.toString()).set(data).then(() => setAdminPage("Main"))
   }
 
@@ -51,13 +59,13 @@ export const Admin = ({ sl }) => {
                 <div>Name : {doc.name}</div>
                 <div>Description : {doc.desc}</div>
                 <div>Date : {doc.date}</div>
+                <Link to={`/edit/${doc.id}`} ><button>details</button></Link>
               </section>
             )
           })
         }
         <button onClick={() => setAdminPage("AddEvent")}>Add event</button>
       </section>
-      <button onClick={() => setAdminPage("TakeFeeback")}>Take Feedback</button>
     </div>
 
   const AddEvent =
@@ -65,33 +73,35 @@ export const Admin = ({ sl }) => {
       <section>AddEvent</section>
       <section >Name : <input ref={name} /></section>
       <section >Description : <input ref={desc} /></section>
-      <section >Date: <input type= "date" ref={date} /></section>
+      <section >Date: <input type="date" ref={date} /></section>
       <section >upcoming : <input ref={upcoming} type="checkbox" /></section>
       <button onClick={() => sendEventDataToFirebase()} >send</button>
       <button onClick={() => setAdminPage("Main")} >Back</button>
     </div>
 
-  const TakeFeeback =
-    <div>
-
-    </div>
-
 
   return (
     <>
-      <div>Admin
-        <button onClick={() => logout(sl)}>Logout</button>
-      </div>
       {
-        AdminPage === "Main" && MainPage
+        a ? <>
+          <div>Admin
+            <button onClick={() => logout(sl)}>Logout</button>
+          </div>
+          {
+            AdminPage === "Main" && MainPage
+          }
+          {
+            AdminPage === "AddEvent" && AddEvent
+          }
+        </> : <>
+          Can't access This Page
+        </>
       }
-      {
-        AdminPage === "AddEvent" && AddEvent
-      }
-      {
-        AdminPage === "TakeFeedback" && TakeFeeback
-      }
+
     </>
 
   )
 }
+
+
+// firebase deploy --only hosting:codechefpccoe
