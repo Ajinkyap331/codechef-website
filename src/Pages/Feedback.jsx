@@ -3,6 +3,8 @@ import { loginG } from '../Config/DB';
 import { useParams } from 'react-router-dom';
 import { db } from '../Config/DB';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Feedback = () => {
   let navigate = useNavigate()
@@ -25,9 +27,12 @@ export const Feedback = () => {
       email: user.email,
       rating: rating.current.value,
       suggest: suggest.current.value,
-      pnumber : pnumber.current.value
+      pnumber: pnumber.current.value
     }
-    db.collection("feedback").doc(id).collection("user").doc(user.email).set(data).then(() => navigate('/'))
+    db.collection("feedback").doc(id).collection("user").doc(user.email).set(data).then(() => toast.success("Feedback Send !", {
+      position: toast.POSITION.TOP_CENTER,
+      onClose: () => navigate('/events')
+    }))
   }
 
   const Register =
@@ -48,6 +53,7 @@ export const Feedback = () => {
         avail ? <>
           {user && Register}
           {!user && <button onClick={() => HandleLogin()}>Login</button>}
+          <ToastContainer />
         </> : <>
           Sorry, The Registration are Closed!!!
         </>

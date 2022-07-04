@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom'
 import React, { useState, useRef, useEffect } from 'react'
 import { logout } from '../Config/DB'
 import { db } from '../Config/DB'
+import load from '../Images/807.gif'
 
 export const Admin = ({ sl }) => {
+
+  const [loader, setloader] = useState(true)
 
   const [AdminPage, setAdminPage] = useState("Main")
   const [Events, setEvent] = useState([])
@@ -27,7 +30,7 @@ export const Admin = ({ sl }) => {
       docs.forEach((doc) => {
         e.push(doc.data())
       })
-    }).then(() => setEvent(e))
+    }).then(() => {setEvent(e); setloader(false)})
   }, [AdminPage])
 
   const getRandomInt = (min, max) => {
@@ -35,6 +38,7 @@ export const Admin = ({ sl }) => {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
   }
+
 
   const sendEventDataToFirebase = () => {
     const id = getRandomInt(100000000, 1000000000)
@@ -45,7 +49,6 @@ export const Admin = ({ sl }) => {
       date: date.current.value,
       upcoming: upcoming.current.checked,
     }
-    // console.log(data)
     db.collection("events").doc(id.toString()).set(data).then(() => setAdminPage("Main"))
   }
 
@@ -68,6 +71,12 @@ export const Admin = ({ sl }) => {
       </section>
     </div>
 
+  const Loader =
+    <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
+      <img alt="" src={load} style={{ height: "70px" }} />
+      <p>Fetching Data</p>
+    </div>
+
   const AddEvent =
     <div className='addevent'>
       <section>AddEvent</section>
@@ -88,7 +97,7 @@ export const Admin = ({ sl }) => {
             <button onClick={() => logout(sl)}>Logout</button>
           </div>
           {
-            AdminPage === "Main" && MainPage
+            loader ? Loader : AdminPage === "Main" && MainPage
           }
           {
             AdminPage === "AddEvent" && AddEvent

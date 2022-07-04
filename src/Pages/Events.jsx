@@ -12,7 +12,6 @@ export const Events = () => {
     const e = []
     db.collection("events").get().then((docs) => {
       docs.forEach((doc) => {
-        console.log(doc.data())
         e.push(doc.data())
       })
     }).then(() => { setEvent(e); setTimeout(() => setloader(false), 1000) })

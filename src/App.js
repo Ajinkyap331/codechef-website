@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/team" element={<Team />} />
           <Route exact path="/events" element={<Events />} />
           <Route exact path="/roadmap" element={<RTCP />} />
-          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/admin" element={<Login />} />
           <Route exact path="/event/:id" element={<Event />}></Route>
           <Route exact path="/register/:id" element={<Register />}></Route>
           <Route exact path="/feedback/:id" element={<Feedback />}></Route>

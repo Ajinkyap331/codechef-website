@@ -33,6 +33,7 @@ export const logout = async (sl) => {
     await firebase.auth().signOut().then(() => {
         sl("loggedout")
     })
+    localStorage.removeItem("user")
 }
 
 const provider = new firebase.auth.GoogleAuthProvider();

@@ -5,6 +5,7 @@ import { RightData } from '../Components/RightData'
 import CodeChefLogo from '../Images/3.webp'
 import load from '../Images/807.gif'
 export const Home = ({ l, sl }) => {
+    
     const LeftContent =
         <div className='home-leftcontent'>
             <p style={{ color: "#5de686" }}>Code</p>

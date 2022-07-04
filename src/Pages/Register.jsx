@@ -4,15 +4,20 @@ import { loginG } from '../Config/DB';
 import { db } from '../Config/DB';
 import firebase from 'firebase';
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const Register = () => {
     const navigate = useNavigate();
     const { id } = useParams();
+
+
     const [user, setuser] = useState(false)
-
     const [eventData, seteventData] = useState(false)
-
     const [avail, seta] = useState(true)
+
+
 
     useEffect(() => {
         db.collection("events").doc(id).get().then(doc => {
@@ -21,9 +26,7 @@ export const Register = () => {
         })
     }, [])
 
-    const HandleLogin = async () => {
-        loginG(setuser)
-    }
+    loginG(setuser)
 
     const Register =
         <>
@@ -36,12 +39,21 @@ export const Register = () => {
         </>
 
     const sendMyInterest = () => {
-
         db.collection("register").doc(eventData.id.toString()).update({
             users: firebase.firestore.FieldValue.arrayUnion(user.email)
-        }).then(() => { navigate("/events") }).catch(() => {
+        }).then(() => {
+            toast.success("Registered Successfully !", {
+                position: toast.POSITION.TOP_CENTER,
+                onClose: () => navigate('/events')
+            });
+        }).catch(() => {
             db.collection("register").doc(eventData.id.toString()).set({
                 users: firebase.firestore.FieldValue.arrayUnion(user.email)
+            }).then(() => {
+                toast.success("Registered Successfully !", {
+                    position: toast.POSITION.TOP_CENTER,
+                    onClose: () => navigate('/events')
+                })
             })
         })
     }
@@ -52,7 +64,8 @@ export const Register = () => {
                 avail ? <>
                     Register
                     {user && Register}
-                    {!user && <button onClick={() => HandleLogin()}>Login</button>}
+                    {!user && <button onClick={() => loginG(setuser)}>Login</button>}
+                    <ToastContainer />
                 </> : <>
                     Sorry, The Registration are Closed!!!
                 </>
