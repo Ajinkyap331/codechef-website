@@ -15,18 +15,32 @@ export const Register = () => {
 
     const [user, setuser] = useState(false)
     const [eventData, seteventData] = useState(false)
-    const [avail, seta] = useState(true)
+    const [avail, seta] = useState("")
 
 
 
     useEffect(() => {
         db.collection("events").doc(id).get().then(doc => {
-            seteventData(doc.data())
-            if (!doc.data().upcoming) seta(false)
+            if (!doc.exists) {
+                toast.error("No Such Event Exists !", {
+                    position: toast.POSITION.TOP_CENTER,
+                    onClose: () => navigate("/events"),
+                })
+                seta("")
+            }
+            else {
+                seteventData(doc.data())
+                if (!doc.data().upcoming){
+                    toast.error("The Registrations are Closed !", {
+                        position: toast.POSITION.TOP_CENTER,
+                        onClose: () => navigate("/events"),
+                    })
+                }
+                else seta("Yes")
+            }
         })
     }, [])
 
-    loginG(setuser)
 
     const Register =
         <>
@@ -60,17 +74,15 @@ export const Register = () => {
 
     return (
         <>
+            <ToastContainer />
             {
-                avail ? <>
+                avail === 'Yes' &&
+                <>
                     Register
                     {user && Register}
                     {!user && <button onClick={() => loginG(setuser)}>Login</button>}
-                    <ToastContainer />
-                </> : <>
-                    Sorry, The Registration are Closed!!!
                 </>
             }
-
         </>
     )
 }

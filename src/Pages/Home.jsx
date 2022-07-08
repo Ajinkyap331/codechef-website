@@ -4,8 +4,10 @@ import { RadialBG } from '../Components/RadialBG'
 import { RightData } from '../Components/RightData'
 import CodeChefLogo from '../Images/3.webp'
 import load from '../Images/807.gif'
-export const Home = ({ l, sl }) => {
+export const Home = () => {
     
+    const [l, sl] = useState(true)
+
     const LeftContent =
         <div className='home-leftcontent'>
             <p style={{ color: "#5de686" }}>Code</p>
@@ -37,7 +39,7 @@ export const Home = ({ l, sl }) => {
                         {LeftContent}
                         <RadialBG sl={sl} />
                     </section>
-                    <RightData l={l} />
+                    <RightData />
                 </div>
                 {LogoCopyrightDesigner}
             </div>

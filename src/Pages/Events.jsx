@@ -10,11 +10,13 @@ export const Events = () => {
 
   useEffect(() => {
     const e = []
-    db.collection("events").get().then((docs) => {
-      docs.forEach((doc) => {
-        e.push(doc.data())
+    db.collection("events").get()
+      .then((docs) => {
+        docs.forEach((doc) => {
+          e.push(doc.data())
+        })
       })
-    }).then(() => { setEvent(e); setTimeout(() => setloader(false), 1000) })
+      .then(() => { setEvent(e); setloader(false) })
   }, [])
 
   const Loader =
@@ -29,7 +31,7 @@ export const Events = () => {
         Events.map((doc) => {
           if (doc.upcoming) {
             return (
-              <section>
+              <section key = {doc.id}>
                 <div>Name : {doc.name}</div>
                 <div>Date : {doc.date}</div>
                 <Link to={`/event/${doc.id}`} ><button>More</button></Link>
@@ -45,7 +47,7 @@ export const Events = () => {
         Events.map((doc) => {
           if (!doc.upcoming) {
             return (
-              <section>
+              <section  key = {doc.id}>
                 <div>Name : {doc.name}</div>
                 <div>Description : {doc.desc}</div>
                 <div>Date : {doc.date}</div>

@@ -18,18 +18,17 @@ import './Styles/RadialBG.css'
 import './Styles/RightData.css'
 import './Styles/Login.css'
 import './Styles/Admin.css'
+import './Styles/Roadmap.css'
 
 
 function App() {
-
-  const [loading, setloading] = useState(true)
 
   return (
     <Router>
       <Navbar />
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Home l={loading} sl={setloading} />} />
+          <Route exact path="/" element={<Home/> } />
           <Route exact path="/team" element={<Team />} />
           <Route exact path="/events" element={<Events />} />
           <Route exact path="/roadmap" element={<RTCP />} />

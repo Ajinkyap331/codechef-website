@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { loginG } from '../Config/DB';
 import { useParams } from 'react-router-dom';
 import { db } from '../Config/DB';
@@ -14,8 +14,32 @@ export const Feedback = () => {
   const suggest = useRef()
   const pnumber = useRef()
 
+  const [eventData, seteventData] = useState(false)
   const [user, setuser] = useState(false)
-  const [avail, seta] = useState(true)
+  const [avail, seta] = useState("")
+
+  useEffect(() => {
+    db.collection("events").doc(id).get().then(doc => {
+      console.log(doc.exists)
+      if (!doc.exists) {
+        toast.error("No Such Event Exists !", {
+          position: toast.POSITION.TOP_CENTER,
+          onClose: () => navigate("/events"),
+        })
+        seta("")
+      }
+      else {
+        seteventData(doc.data())
+        if (doc.data().upcoming) {
+          toast.error("Feeback From is Closed ! Try Again Later !!!", {
+            position: toast.POSITION.TOP_CENTER,
+            onClose: () => navigate("/events"),
+          })
+        }
+        else seta("Yes")
+      }
+    })
+  }, [])
 
   const HandleLogin = () => {
     loginG(setuser)
@@ -49,13 +73,12 @@ export const Feedback = () => {
 
   return (
     <div>
+      <ToastContainer />
       {
-        avail ? <>
+        avail === "Yes" && <>
           {user && Register}
           {!user && <button onClick={() => HandleLogin()}>Login</button>}
           <ToastContainer />
-        </> : <>
-          Sorry, The Registration are Closed!!!
         </>
       }
     </div>

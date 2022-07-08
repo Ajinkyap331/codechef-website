@@ -1,0 +1,252 @@
+.roadmap {
+  display: flex;
+}
+
+.roadmap-left {
+  display: flex;
+  height: 90vh;
+  width: 50vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.linked-steps {
+  min-width: 450px;
+  min-height: 450px;
+  max-width: 450px;
+  max-height: 450px;
+  border-radius: 50%;
+}
+
+.linked-steps > section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ls1 {
+  left: 195px;
+}
+
+.ls2 {
+  top: 35px;
+}
+
+.ls3 {
+  left: 10px;
+  top: 145px;
+}
+
+.ls4 {
+  top: 170px;
+  left: 200px;
+}
+
+.ls5 {
+  top: -25px;
+  left: 390px;
+}
+
+.ar1 {
+  position: relative;
+  top: 0px;
+  left: 60px;
+  transform: rotate(147deg);
+}
+
+.ar2 {
+  position: relative;
+  top: 52px;
+  left: -67px;
+  transform: rotate(90deg);
+}
+
+.ar3 {
+  position: relative;
+  top: 145px;
+  left: 05px;
+  transform: rotate(30deg);
+}
+
+.ar4 {
+  position: relative;
+  top: 100px;
+  left: 205px;
+  transform: rotate(330deg);
+}
+.roadmap-right {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+.roadmap-icons {
+  width: 40vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.three-lines {
+  position: absolute;
+  top: 13vh;
+  left: 0;
+}
+
+.three-lines > section {
+  height: 10px;
+  border-bottom: 3px solid #5de686;
+}
+
+.three-lines2 {
+  position: absolute;
+  bottom: 10vh;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.three-lines2 > section {
+  height: 10px;
+  border-bottom: 3px solid #5de686;
+}
+
+.yt-roadmap,
+.art-roadmap,
+.git-roadmap,
+.question-roadmap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.yt-roadmap > div,
+.art-roadmap > div,
+.git-roadmap > div,
+.question-roadmap > div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-width: 14vw;
+}
+
+.linked-title-number {
+  position: relative;
+  top: -180px;
+  font-size: larger;
+  text-align: center;
+}
+
+.linked-title {
+  color: #5de686;
+  position: relative;
+  top: -150px;
+  font-size: larger;
+  text-align: center;
+}
+
+.roadmap-desc {
+  width: 40vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .roadmap {
+    flex-direction: column;
+  }
+
+  .roadmap-left {
+    width: 100vw;
+  }
+
+  .roadmap-right {
+    width: 100vw;
+    text-align: center;
+    align-items: center;
+  }
+
+  .roadmap-desc {
+    width: 80vw;
+  }
+
+  .roadmap-icons {
+    width: 80vw;
+  }
+
+  .yt-roadmap > div,
+  .art-roadmap > div,
+  .git-roadmap > div {
+    min-width: 32vw;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .linked-steps {
+    background-color: rgba(0, 0, 0, 0.418);
+    padding: 40px;
+    min-width: 250px;
+    min-height: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 50%;
+  }
+
+  .ls1 {
+    left: 105px;
+    top: -20px;
+  }
+
+  .ls2 {
+    top: 15px;
+    left: -20px;
+  }
+
+  .ls3 {
+    left: 20px;
+    top: 90px;
+  }
+
+  .ls4 {
+    top: 37px;
+    left: 180px;
+  }
+
+  .ls5 {
+    top: -135px;
+    left: 220px;
+  }
+
+  .ar1 {
+    top: -30px;
+    left: 0px;
+    transform: rotate(138deg);
+  }
+
+
+  .ar2,
+  .ar3,
+  .ar4,
+  .three-lines,
+  .three-lines2 {
+    display: none;
+  }
+
+  .roadmap-right {
+    font-size: 10px;
+    padding: 20px 0;
+  }
+
+  .roadmap-left{
+    height: 65vh;
+  }
+}

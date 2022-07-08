@@ -11,6 +11,8 @@
 }
 
 .home-leftcontent{
+    position: absolute;
+    left : 0;
     transform: rotateZ(90deg);
     white-space: nowrap;
     height: 600px;
