@@ -53,7 +53,7 @@ export const EditEvent = () => {
       setloader(false)
     })
 
-  }, [])
+  }, [id])
 
   const EditData = () => {
     const data = {
@@ -63,12 +63,12 @@ export const EditEvent = () => {
       date: date.current.value,
       upcoming: upcoming.current.checked,
     }
-    db.collection("events").doc(id.toString()).set(data).then(() => navigate('/login'))
+    db.collection("events").doc(id.toString()).set(data).then(() => navigate('/admin'))
   }
 
   const Loader =
     <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
-      <img alt="" src={load} style={{ height: "70px" }} />
+      <img alt="Loading" src={load} style={{ height: "70px" }} />
       <p>Fetching Event Data</p>
     </div>
 

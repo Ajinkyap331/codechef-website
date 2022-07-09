@@ -1,5 +1,4 @@
 import './App.css';
-import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from './Pages/Home';
 import { Team } from './Pages/Team';
@@ -19,6 +18,7 @@ import './Styles/RightData.css'
 import './Styles/Login.css'
 import './Styles/Admin.css'
 import './Styles/Roadmap.css'
+import './Styles/Events.css'
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       <Navbar />
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Home/> } />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/team" element={<Team />} />
           <Route exact path="/events" element={<Events />} />
           <Route exact path="/roadmap" element={<RTCP />} />

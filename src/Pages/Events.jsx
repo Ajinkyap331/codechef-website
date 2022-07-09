@@ -21,43 +21,50 @@ export const Events = () => {
 
   const Loader =
     <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
-      <img alt="" src={load} style={{ height: "70px" }} />
+      <img alt="Loading" src={load} style={{ height: "70px" }} />
       <p>Searching the Latest Events</p>
     </div>
 
   return (
-    <div>Ongoing
-      {
-        Events.map((doc) => {
-          if (doc.upcoming) {
-            return (
-              <section key = {doc.id}>
-                <div>Name : {doc.name}</div>
-                <div>Date : {doc.date}</div>
-                <Link to={`/event/${doc.id}`} ><button>More</button></Link>
-                <Link to={`/register/${doc.id}`} ><button>Register</button></Link>
-              </section>
-            )
-          }
-        })
-      }
+    <div>
+      <p className='title-events'>Upcoming</p>
+      <div className="events-container">
+        {
+          Events.map((doc) => {
+            if (doc.upcoming) {
+              return (
+                <section key={doc.id} className="event-events">
+                  <div>{doc.name}</div>
+                  <div>{doc.date}</div>
+                  <Link to={`/event/${doc.id}`} ><button className='more-events'>More</button></Link><br />
+                  <Link to={`/register/${doc.id}`} ><button className='register-events'>Register</button></Link>
+                </section>
+              )
+            }
+            else return <></>
+          })
+        }
+      </div>
       <br /><br /><br /><br />
-      Past Events
-      {
-        Events.map((doc) => {
-          if (!doc.upcoming) {
-            return (
-              <section  key = {doc.id}>
-                <div>Name : {doc.name}</div>
-                <div>Description : {doc.desc}</div>
-                <div>Date : {doc.date}</div>
-                <Link to={`/event/${doc.id}`} ><button>More</button></Link>
-                <Link to={`/feedback/${doc.id}`} ><button>Feedback</button></Link>
-              </section>
-            )
-          }
-        })
-      }
+      <p className='title-events'  > Past Events</p>
+      <div className="events-container">
+        {
+          Events.map((doc) => {
+            if (!doc.upcoming) {
+              return (
+                <section key={doc.id} className="event-events" >
+                  <div>{doc.name}</div>
+                  <div>{doc.date}</div>
+                  <Link to={`/event/${doc.id}`} ><button className='more-events'>More</button></Link><br />
+                  <Link to={`/feedback/${doc.id}`} ><button className='register-events'>Feedback</button></Link>
+                </section>
+              )
+            }
+            else return <></>
+          })
+        }
+      </div>
+
       {
         loader && Loader
       }

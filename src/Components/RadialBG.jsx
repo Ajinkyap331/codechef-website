@@ -5,7 +5,7 @@ export const RadialBG = ({ sl }) => {
   return (
     <div className='radial-outer'>
       <div className='radial'>
-        <img alt = "" src={ChapterLogo} onLoad={() => sl(false)}></img>
+        <img alt = "Logo" src={ChapterLogo} onLoad={() => sl(false)}></img>
       </div>
     </div>
 

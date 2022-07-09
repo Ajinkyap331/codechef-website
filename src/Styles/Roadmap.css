@@ -226,13 +226,7 @@
     left: 220px;
   }
 
-  .ar1 {
-    top: -30px;
-    left: 0px;
-    transform: rotate(138deg);
-  }
-
-
+  .ar1,
   .ar2,
   .ar3,
   .ar4,
@@ -246,7 +240,7 @@
     padding: 20px 0;
   }
 
-  .roadmap-left{
+  .roadmap-left {
     height: 65vh;
   }
 }

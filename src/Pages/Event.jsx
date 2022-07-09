@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { db } from '../Config/DB'
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import load from '../Images/807.gif'
@@ -27,11 +27,11 @@ export const Event = () => {
                 })
             }
         })
-    }, [])
+    }, [id, navigate])
 
     const Loader =
         <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
-            <img alt="" src={load} style={{ height: "70px" }} />
+            <img alt="Loading" src={load} style={{ height: "70px" }} />
             <p>Getting the Event Data</p>
         </div>
 
@@ -40,7 +40,7 @@ export const Event = () => {
         <div>Description : {eventData.desc}</div>
         <Link to={`/register/${id}`} ><button>Register</button></Link>
         <div>Date : {eventData.date}</div>
-        <img src="https://drive.google.com/uc?export=view&id=16Qy3QIchgfEJrexr-S_2bQp2Z_Ffg4Aw"></img>
+        <img alt = "Poster" src="https://drive.google.com/uc?export=view&id=16Qy3QIchgfEJrexr-S_2bQp2Z_Ffg4Aw"/>
     </>
     return (
         <>

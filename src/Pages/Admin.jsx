@@ -73,7 +73,7 @@ export const Admin = ({ sl }) => {
 
   const Loader =
     <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
-      <img alt="" src={load} style={{ height: "70px" }} />
+      <img alt="Loading" src={load} style={{ height: "70px" }} />
       <p>Fetching Data</p>
     </div>
 
