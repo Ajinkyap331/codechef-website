@@ -49,3 +49,6 @@ export const loginG = async (setuser) => {
 }
 
 export const db = firebase.firestore();
+
+//  firebase deploy --only hosting:codechefpccoe
+

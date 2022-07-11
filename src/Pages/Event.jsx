@@ -14,7 +14,6 @@ export const Event = () => {
 
     useEffect(() => {
         db.collection("events").doc(id).get().then(doc => {
-            console.log(doc.exists)
             if (doc.exists) {
                 seteventData(doc.data())
                 setloader(false)
@@ -35,13 +34,20 @@ export const Event = () => {
             <p>Getting the Event Data</p>
         </div>
 
-    const Display = <>
-        <div>Name : {eventData.name}</div>
-        <div>Description : {eventData.desc}</div>
-        <Link to={`/register/${id}`} ><button>Register</button></Link>
-        <div>Date : {eventData.date}</div>
-        <img alt = "Poster" src="https://drive.google.com/uc?export=view&id=16Qy3QIchgfEJrexr-S_2bQp2Z_Ffg4Aw"/>
-    </>
+    const Display =
+        <div className='events-playarea'>
+            <div className='left-event'><img alt="Poster" src={`https://drive.google.com/uc?export=view&id=${eventData.posterid}`} /></div>
+            <div className='right-event'>
+                <div>Name : {eventData.name}</div>
+                <div>Description : {eventData.desc}</div>
+                <div>Date : {eventData.date}</div>
+                {
+                    eventData.upcoming ?
+                        <Link to={`/register/${id}`} ><button className='register-btn-event' >Register</button></Link>
+                        : <Link to={`/feedback/${id}`} ><button className='feedback-btn-event' >Feedback</button></Link>
+                }
+            </div>
+        </div>
     return (
         <>
             {Display}

@@ -43,14 +43,14 @@ export const Register = () => {
 
 
     const Register =
-        <>
+        <div className='register-panel'>
             <div>Name : {user.displayName}</div>
             <div>Email : {user.email}</div>
             <div>Event Name : {eventData.name}</div>
             <div>Description : {eventData.desc}</div>
             <div>Date : {eventData.date}</div>
             <button onClick={() => sendMyInterest()}>I am Interested to Join</button>
-        </>
+        </div>
 
     const sendMyInterest = () => {
         db.collection("register").doc(eventData.id.toString()).update({
@@ -78,9 +78,8 @@ export const Register = () => {
             {
                 avail === 'Yes' &&
                 <>
-                    Register
                     {user && Register}
-                    {!user && <button onClick={() => loginG(setuser)}>Login</button>}
+                    {!user && <div className='login-btn'><button onClick={() => loginG(setuser)}>Login</button></div>}
                 </>
             }
         </>

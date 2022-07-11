@@ -21,13 +21,16 @@
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.537);
     border-radius: 16px;
+    box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
 }
 
 .event-events > div {
     font-size: 18px;
     padding: 10px 0;
-    
 }
+
+
+
 
 .more-events, .register-events{
     padding : 7px 30px;
@@ -37,4 +40,5 @@
     outline: none;
     border-radius: 8px;
     font-weight: bolder;
+    cursor: pointer;
 }

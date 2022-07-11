@@ -20,7 +20,6 @@ export const Feedback = () => {
 
   useEffect(() => {
     db.collection("events").doc(id).get().then(doc => {
-      console.log(doc.exists)
       if (!doc.exists) {
         toast.error("No Such Event Exists !", {
           position: toast.POSITION.TOP_CENTER,
@@ -46,6 +45,24 @@ export const Feedback = () => {
   }
 
   const SendFeedback = () => {
+    if(rating.current.value > 5 || rating.current.value <= 0){
+      toast.error(" Rating is Invalid !!!", {
+        position: toast.POSITION.TOP_CENTER,
+      })
+      return
+    }
+    if(suggest.current.value === ''){
+      toast.error(" Suggestion Cannot be Empty !!!", {
+        position: toast.POSITION.TOP_CENTER,
+      })
+      return
+    }
+    if(pnumber.current.value.length !== 10){
+      toast.error(" Number is Invalid !!!", {
+        position: toast.POSITION.TOP_CENTER,
+      })
+      return
+    }
     const data = {
       name: user.displayName,
       email: user.email,
@@ -59,26 +76,24 @@ export const Feedback = () => {
     }))
   }
 
-  const Register =
-    <>
+  const Feedback =
+    <div className='feedback'>
       <div>Name : {user.displayName}</div>
       <div>Email : {user.email}</div>
-      <div>How was the Event(1 to 5) :
-        <input ref={rating} type="number" min="0" max="5" ></input>
+      <div>How was the Event(1 to 5) : <input ref={rating} type="number" min="0" max="5" ></input>
       </div>
       <div>Suggestion : <input ref={suggest}></input></div>
       <div>Phone Number : <input ref={pnumber} type="tel" ></input> </div>
-      <button onClick={() => SendFeedback()} >Send Feedback</button>
-    </>
+      <button className = "feedback-btn-event" onClick={() => SendFeedback()} >Send Feedback</button>
+    </div>
 
   return (
     <div>
       <ToastContainer />
       {
         avail === "Yes" && <>
-          {user && Register}
-          {!user && <button onClick={() => HandleLogin()}>Login</button>}
-          <ToastContainer />
+          {user && Feedback}
+          {!user && <div className='login-btn'><button onClick={() => HandleLogin()}>Login</button></div>}
         </>
       }
     </div>
