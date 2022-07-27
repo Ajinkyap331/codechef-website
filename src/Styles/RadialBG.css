@@ -1,67 +1,96 @@
 @keyframes radius {
-    0% {width : 450px; height: 450px}
-    50% {width : 550px; height : 550px;}
-    100% {width : 450px; height: 450px;}
-}
-
-.radial{
-    display: flex;
-    align-items: center;
-    justify-content: center;    
+  0% {
+    width: 450px;
     height: 450px;
-    width : 450px;
-    transition: 1s;
-    animation-name: radius;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    background: radial-gradient(50% 50% at 50% 50%, #5DE686 -20%, rgba(4, 57, 6, 0) 100%);
+  }
+  50% {
+    width: 550px;
+    height: 550px;
+  }
+  100% {
+    width: 450px;
+    height: 450px;
+  }
 }
 
-
-
-.radial > img{
-    height: 400px;
-    width : 400px;
+.radial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
+  width: 450px;
+  transition: 1s;
+  animation-name: radius;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #5de686 -20%,
+    rgba(4, 57, 6, 0) 100%
+  );
 }
 
-.radial-outer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 550px;
-    min-width : 550px;
+.radial > img {
+  height: 400px;
+  width: 400px;
 }
 
-
-.radial1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 400px;
-    width : 400px;
-    background: radial-gradient(50% 50% at 50% 50%,  #5DE686 -20%, rgba(90, 72, 32, 0) 100%);
+.radial-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 550px;
+  min-width: 550px;
 }
 
-@media screen and (max-width: 680px){
-    .radial-outer{
-        min-height: 350px;
-        min-width : 350px;
-    }
+.radial1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 400px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #5de686 -20%,
+    rgba(90, 72, 32, 0) 100%
+  );
+}
 
-    @keyframes radius {
-        0% {width : 300px; height: 300px;}
-        50% {width : 350px; height : 350px;}
-        100% {width : 300px; height: 300px;}
-    }
-    
-    .radial{
-        height: 300px;
-        width : 300px;
-    }
+@media screen and (max-width: 680px) {
+  .radial-outer {
+    min-height: 350px;
+    min-width: 350px;
+  }
 
-
-    .radial > img{
-        height: 200px;
-        width : 200px;
+  @keyframes radius {
+    0% {
+      width: 300px;
+      height: 300px;
     }
-}   
+    50% {
+      width: 350px;
+      height: 350px;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .radial {
+    height: 300px;
+    width: 300px;
+  }
+
+  .radial > img {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .radial1 {
+    height: 330px;
+    width: 330px;
+  }
+}

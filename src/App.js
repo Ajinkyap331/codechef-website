@@ -10,6 +10,7 @@ import { Event } from './Pages/Event';
 import { Register } from './Pages/Register';
 import { Feedback } from './Pages/Feedback';
 import { EditEvent } from './Pages/EditEvent';
+import { Suggestion } from './Pages/Suggestion';
 import './Styles/Home.css'
 import './Styles/Team.css'
 import './Styles/Navbar.css'
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/register/:id" element={<Register />}></Route>
           <Route exact path="/feedback/:id" element={<Feedback />}></Route>
           <Route exact path="/edit/:id" element={<EditEvent />}></Route>
+          <Route exact path= "/suggest" element = {<Suggestion/>}></Route>
         </Routes>
       </div>
     </Router>

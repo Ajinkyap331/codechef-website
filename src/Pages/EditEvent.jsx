@@ -20,6 +20,7 @@ export const EditEvent = () => {
   const desc = useRef()
   const date = useRef()
   const upcoming = useRef()
+  const posterid = useRef()
 
   const [rows, sr] = useState([]);
 
@@ -37,6 +38,7 @@ export const EditEvent = () => {
       desc.current.value = data.desc
       date.current.value = data.date
       upcoming.current.checked = data.upcoming
+      posterid.current.value = data.posterid
     })
 
     db.collection("register").doc(id).get().then(data => {
@@ -62,6 +64,7 @@ export const EditEvent = () => {
       desc: desc.current.value,
       date: date.current.value,
       upcoming: upcoming.current.checked,
+      posterid : posterid.current.value,
     }
     db.collection("events").doc(id.toString()).set(data).then(() => navigate('/admin'))
   }
@@ -82,6 +85,7 @@ export const EditEvent = () => {
     <section >Description : <input ref={desc} /></section>
     <section >Date: <input type="date" ref={date} /></section>
     <section >upcoming : <input ref={upcoming} type="checkbox" /></section>
+    <section >Posterid : <input ref={posterid}  /> </section>
     <button onClick={() => EditData()}>Save Changes</button>
     <br />
     <br />

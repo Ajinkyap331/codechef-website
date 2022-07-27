@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { loginG } from '../Config/DB';
 import { db } from '../Config/DB';
@@ -39,7 +39,7 @@ export const Register = () => {
                 else seta("Yes")
             }
         })
-    }, [])
+    }, [id, navigate])
 
 
     const Register =

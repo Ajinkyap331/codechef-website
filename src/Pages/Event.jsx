@@ -35,7 +35,7 @@ export const Event = () => {
         </div>
 
     const Display =
-        <div className='events-playarea'>
+        <div className='events-playarea'>   
             <div className='left-event'><img alt="Poster" src={`https://drive.google.com/uc?export=view&id=${eventData.posterid}`} /></div>
             <div className='right-event'>
                 <div>Name : {eventData.name}</div>

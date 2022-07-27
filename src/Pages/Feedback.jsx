@@ -38,7 +38,7 @@ export const Feedback = () => {
         else seta("Yes")
       }
     })
-  }, [])
+  }, [id, navigate])
 
   const HandleLogin = () => {
     loginG(setuser)
@@ -79,6 +79,7 @@ export const Feedback = () => {
   const Feedback =
     <div className='feedback'>
       <div>Name : {user.displayName}</div>
+      <div>Event Name : {eventData.name}</div>
       <div>Email : {user.email}</div>
       <div>How was the Event(1 to 5) : <input ref={rating} type="number" min="0" max="5" ></input>
       </div>

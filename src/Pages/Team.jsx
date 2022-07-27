@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Navbar } from '../Components/Navbar'
 import { Teams } from '../Data/Data'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
@@ -55,8 +54,12 @@ export const Team = () => {
       <p>Almost There</p>
     </div>
 
+  const year = <>
+    <div style = {{fontSize : "20px", textAlign : "center"}}>Team 2021 - 2022</div>
+  </>
   return (
     <div>
+      {year}
       <div className="team-body">
         {President}
         <div className='team-teams'>
