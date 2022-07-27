@@ -4,7 +4,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import { TeamAvatar } from '../Components/TeamAvatar'
 import { RadialBGR } from '../Components/RadialBGR';
-import load from '../Images/807.gif'
+// import load from '../Images/807.gif'
 
 
 export const Team = () => {
@@ -48,11 +48,11 @@ export const Team = () => {
       }
     </div>
 
-  const Loader =
-    <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
-      <img alt="" src={load} style={{ height: "70px" }} />
-      <p>Almost There</p>
-    </div>
+  // const Loader =
+  //   <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
+  //     <img alt="" src={load} style={{ height: "70px" }} />
+  //     <p>Almost There</p>
+  //   </div>
 
   const year = <>
     <div style = {{fontSize : "20px", textAlign : "center"}}>Team 2021 - 2022</div>

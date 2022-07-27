@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { db } from '../Config/DB'
 import { login } from '../Config/DB'
 import { Admin } from './Admin'
 export const Login = () => {
