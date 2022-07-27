@@ -1,0 +1,34 @@
+.home-navbar{
+    font-size: 22px;
+    padding: 20px;
+    display: flex;
+    gap : 50px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.home-navbar > section > a{
+    text-decoration: none;
+    color : white;
+    cursor: pointer;
+    text-decoration-color: #5DE686;
+}   
+
+.home-navbar > section > a:hover{
+    color:  #5DE686;
+}
+
+@media screen and (max-width: 680px) {
+    .home-navbar > section > a{
+        font-size: 15px;
+    }
+    .home-navbar{
+        gap : 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .home-navbar{
+        gap : 10px;
+    }
+  }
