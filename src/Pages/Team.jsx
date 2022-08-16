@@ -10,12 +10,13 @@ import { RadialBGR } from '../Components/RadialBGR';
 export const Team = () => {
   var team = ["CP", "DESIGN", "EVENT", "SOCIAL MEDIA"]
   const [selected, setselected] = useState(0)
+  const [Year, setyear] = useState("2021")
 
   const President =
     <div className="team-president">
       <p>President</p>
-      <RadialBGR type="avatar" />
-      <p>Rahul Badgujar</p>
+      <RadialBGR president={Teams[Year].President.photo} />
+      <p>{Teams[Year].President.name}</p>
     </div>
 
   const SelectTeamWithButton =
@@ -30,14 +31,14 @@ export const Team = () => {
 
   const TeamLead =
     <div className="team-card">
-      <TeamAvatar photo={Teams[team[selected]].lead.photo} size={200} selected={selected} />
-      <p>{Teams[team[selected]].lead.name}</p>
+      <TeamAvatar photo={Teams[Year][team[selected]].lead.photo} size={200} selected={selected} />
+      <p>{Teams[Year][team[selected]].lead.name}</p>
     </div>
 
   const MembersMap =
     <div className='team-membersmap'>
       {
-        Teams[team[selected]].members.map((e) => {
+        Teams[Year][team[selected]].members.map((e) => {
           return (
             <div key={e.name} className="team-card">
               <TeamAvatar photo={e.photo} size={100} selected={selected} />
@@ -48,6 +49,22 @@ export const Team = () => {
       }
     </div>
 
+  const slider = <>
+    {
+      Year === "2021" &&
+      <div className='team-slider-right' onClick={() => { setyear("2022") }}>
+        <img height={80} src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/344/external-arrow-arrows-those-icons-lineal-color-those-icons-1.png"></img>
+      </div>
+    }
+    {
+      Year === "2022" &&
+      <div className='team-slider-left' onClick={() => { setyear("2021") }}>
+        <img height={80} src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/344/external-arrow-arrows-those-icons-lineal-color-those-icons-1.png"></img>
+      </div>
+    }
+
+  </>
+
   // const Loader =
   //   <div style={{ display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px", position: "absolute", zIndex: "1", top: 0, background: "#0d1117" }}>
   //     <img alt="" src={load} style={{ height: "70px" }} />
@@ -55,7 +72,7 @@ export const Team = () => {
   //   </div>
 
   const year = <>
-    <div style = {{fontSize : "20px", textAlign : "center"}}>Team 2021 - 2022</div>
+    <div style={{ fontSize: "20px", textAlign: "center" }}>Team {Year} - {parseInt(Year) + 1}</div>
   </>
   return (
     <div>
@@ -66,6 +83,7 @@ export const Team = () => {
           {SelectTeamWithButton}
           {TeamLead}
           {MembersMap}
+          {slider}
         </div>
       </div>
     </div>

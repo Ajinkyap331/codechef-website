@@ -4,6 +4,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import load from '../Images/807.gif'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { EventPoster } from '../Components/EventPoster';
 
 
 export const Event = () => {
@@ -36,7 +37,7 @@ export const Event = () => {
 
     const Display =
         <div className='events-playarea'>   
-            <div className='left-event'><img alt="Poster" src={`https://drive.google.com/uc?export=view&id=${eventData.posterid}`} /></div>
+            <EventPoster eventData={eventData}/>
             <div className='right-event'>
                 <div>Name : {eventData.name}</div>
                 <div>Description : {eventData.desc}</div>

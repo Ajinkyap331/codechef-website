@@ -45,19 +45,19 @@ export const Feedback = () => {
   }
 
   const SendFeedback = () => {
-    if(rating.current.value > 5 || rating.current.value <= 0){
+    if (rating.current.value > 5 || rating.current.value <= 0) {
       toast.error(" Rating is Invalid !!!", {
         position: toast.POSITION.TOP_CENTER,
       })
       return
     }
-    if(suggest.current.value === ''){
+    if (suggest.current.value === '') {
       toast.error(" Suggestion Cannot be Empty !!!", {
         position: toast.POSITION.TOP_CENTER,
       })
       return
     }
-    if(pnumber.current.value.length !== 10){
+    if (pnumber.current.value.length !== 10) {
       toast.error(" Number is Invalid !!!", {
         position: toast.POSITION.TOP_CENTER,
       })
@@ -83,9 +83,9 @@ export const Feedback = () => {
       <div>Email : {user.email}</div>
       <div>How was the Event(1 to 5) : <input ref={rating} type="number" min="0" max="5" ></input>
       </div>
-      <div>Suggestion : <input ref={suggest}></input></div>
+      <div><div>Suggestion :</div> <textarea rows={5} cols={25} ref={suggest}></textarea></div>
       <div>Phone Number : <input ref={pnumber} type="tel" ></input> </div>
-      <button className = "feedback-btn-event" onClick={() => SendFeedback()} >Send Feedback</button>
+      <button className="feedback-btn-event" onClick={() => SendFeedback()} >Send Feedback</button>
     </div>
 
   return (
@@ -94,7 +94,7 @@ export const Feedback = () => {
       {
         avail === "Yes" && <>
           {user && Feedback}
-          {!user && <div className='login-btn'><button onClick={() => HandleLogin()}>Login</button></div>}
+          {!user && <div className='login-btn'><div>You need to Login Before Giving Feedback !!!</div> <button onClick={() => HandleLogin()}>Login</button></div>}
         </>
       }
     </div>

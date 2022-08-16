@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import loading from '../Images/1488.gif'
 import { Avatar } from '@mui/material'
-export const TeamAvatar = ({ photo, size, selected }) => {
+export const TeamAvatar = ({ photo, size, selected}) => {
 
     const [load, setload] = useState(false)
 

@@ -30,6 +30,8 @@ p {
 
 .login-btn {
   display: flex;
+  flex-direction: column;
+  gap : 20px;
   width: 100vw;
   height: 90vh;
   justify-content: center;
@@ -115,7 +117,8 @@ p {
   font-size: larger;
 }
 
-.feedback > div > input{
+.feedback > div > input,
+.feedback > div > textarea{
   border: none;
   outline: none;
   padding: 10px;
@@ -123,6 +126,12 @@ p {
   background: #0d1117;
   border: 1px solid white;
   color : white
+}
+
+.feedback > div {
+  display: flex;
+  align-items: center;
+  gap : 10px;
 }
 
 
