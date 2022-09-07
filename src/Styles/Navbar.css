@@ -1,3 +1,12 @@
+.navbar-logo{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 18px;
+}
+
+
 .home-navbar{
     font-size: 22px;
     padding: 20px;
