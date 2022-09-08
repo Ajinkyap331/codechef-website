@@ -31,6 +31,13 @@ export const login = async (email, password, sl) => {
         });
 }
 
+
+export const logoutG = async (sl) => {
+    await firebase.auth().signOut().then(() => {
+        sl("")
+    })
+}
+
 export const logout = async (sl) => {
     await firebase.auth().signOut().then(() => {
         sl("loggedout")

@@ -11,6 +11,9 @@ import { Register } from './Pages/Register';
 import { Feedback } from './Pages/Feedback';
 import { EditEvent } from './Pages/EditEvent';
 import { Suggestion } from './Pages/Suggestion';
+import { ULogin } from './Pages/ULogin'
+import { Enliven } from './Pages/Enliven';
+import { EnlivenAdmin } from './Pages/EnlivenAdmin';
 import './Styles/Home.css'
 import './Styles/Team.css'
 import './Styles/Navbar.css'
@@ -34,6 +37,9 @@ function App() {
           <Route exact path="/events" element={<Events />} />
           <Route exact path="/roadmap" element={<RTCP />} />
           <Route exact path="/admin" element={<Login />} />
+          <Route exact path="/login" element={<ULogin />} / >
+          <Route exact path="/enliven/:weekno" element={<Enliven />} / >
+          <Route exact path="/enliven/admin" element={<EnlivenAdmin />} / >
           <Route exact path="/event/:id" element={<Event />}></Route>
           <Route exact path="/register/:id" element={<Register />}></Route>
           <Route exact path="/feedback/:id" element={<Feedback />}></Route>
