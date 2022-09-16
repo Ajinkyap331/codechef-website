@@ -39,7 +39,7 @@ export const Suggestion = () => {
   const Suggest = (
     <>
       <div className="feedback">
-        <div>Name : {login.username}</div>
+        <div>Name : {login.displayName}</div>
         <div>Email : {login.email}</div>
         <div>
           <div>Suggestion :</div>{" "}

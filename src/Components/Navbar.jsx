@@ -24,7 +24,7 @@ export const Navbar = () => {
           onClick={() => setselect("/enliven")}
         >
           {" "}
-          <Link to="/enliven/0">ENLIVEN</Link>
+          <Link to="/enliven/1">ENLIVEN</Link>
         </section>
         <section
           style={{ textDecoration: select === "/team" ? "underline" : "none" }}
