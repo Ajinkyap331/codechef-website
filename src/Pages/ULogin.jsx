@@ -5,32 +5,74 @@ import { loginG, logoutG } from "../Config/DB";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { db } from "../Config/DB";
 
 export const ULogin = () => {
   const navigate = useNavigate();
   let login = useSelector((state) => state.login);
   const [_login, setlogin] = useState(login);
+  const [cert, setcert] = useState([]);
 
   useEffect(() => {
-    if (_login === "") {
+    if (_login === "logout") {
       dispatch(
         loginAction.addLogin({
-          photoURL: -1,
+          photoURL: -1, 
           displayName: -1,
-          UID: -1,
-          email: -1,
+          email: -1,  
         })
       );
-    } else
+      setcert([])
+    }
+    // console.log(_login.email)
+     else if (_login.email !== -1) {
       dispatch(
         loginAction.addLogin({
           photoURL: _login.photoURL,
           displayName: _login.displayName,
-          UID: _login.UID,
           email: _login.email,
         })
       );
 
+      db.collection("users")
+      .doc(_login.email)
+        .collection("Certificates")
+        .doc("all")
+        .get()
+        .then((e) => {
+          setcert(e.data().Array);
+        });
+
+    }   
+
+
+
+
+    // if (_login === "") {
+    //   dispatch(
+    //     loginAction.addLogin({
+    //       photoURL: -1,
+    //       displayName: -1,
+    //       UID: -1,
+    //       email: -1,
+    //     })
+    //   );
+    // } else {
+    //   dispatch(
+    //     loginAction.addLogin({
+    //       photoURL: _login.photoURL,
+    //       displayName: _login.displayName,
+    //       UID: _login.UID,
+    //       email: _login.email,
+    //     })
+    //   );
+    // }
+
+    // if (_login.email !== -1) {
+    //   console.log(
+
+    //   );
+    // }
     // document.cookie = `photoURL= ${login.photoURL}`
     // document.cookie = `username= ${login.displayName}`
     // document.cookie = `UID= ${login.uid}`
@@ -38,10 +80,10 @@ export const ULogin = () => {
   }, [_login]);
 
   const dispatch = useDispatch();
+
   return (
     <div>
       <div className="login-btn">
-        {/* <div>Login Here</div> */}
         {login.email === -1 && (
           <button
             onClick={() => {
@@ -52,13 +94,25 @@ export const ULogin = () => {
           </button>
         )}
         {login.email !== -1 && (
-          <button
-            onClick={() => {
-              logoutG(setlogin);
-            }}
-          >
-            Logout
-          </button>
+          <>
+            <button
+              onClick={() => {
+                logoutG(setlogin);
+              }}
+            >
+              Logout
+            </button>
+            Certificates
+            {/* {console.log(cert)} */}
+            {cert !== [] &&
+              cert.map((e) => {
+                return (
+                  <a className = "certificate-download" href={e} target="_blank">
+                    Download Certificate
+                  </a>
+                );
+              })}
+          </>
         )}
       </div>
     </div>

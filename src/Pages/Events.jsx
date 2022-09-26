@@ -29,7 +29,7 @@ export const Events = () => {
       .get()
       .then((docs) => {
         docs.forEach((doc) => {
-          console.log(doc.data());
+          // console.log(doc.data()); 
           e.push(doc.data());
         });
       })

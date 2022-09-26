@@ -6,6 +6,11 @@ import useInput from "../hooks/use-input";
 import Modal from "../UI/Modal";
 
 export const EnlivenAdmin = () => {
+
+  return(
+    <p style = {{textAlign : "center"}}>Under Contruction...</p>
+  );
+  
   const [Message, setMessage] = useState("");
   const [check, setCheck] = useState(false);
   const week = useRef();

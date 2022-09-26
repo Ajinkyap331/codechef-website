@@ -14,7 +14,7 @@ const loginSlice = createSlice({
             state.displayName = action.payload.displayName;
             state.UID = action.payload.UID;
             state.email = action.payload.email;
-            console.log(action.payload.loginRedux);
+            // console.log(action.payload.loginRedux);
         }
         
     }
