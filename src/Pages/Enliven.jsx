@@ -7,6 +7,11 @@ import { useSelector } from "react-redux";
 import { db } from "../Config/DB";
 
 export const Enliven = () => {
+
+  return(
+    <p style = {{textAlign : "center"}}>Under Contruction...</p>
+  );
+
   const { weekno } = useParams();
   // const [links, setLinks] = useState();
 

@@ -7,15 +7,18 @@ import { useSelector } from "react-redux";
 export const Navbar = () => {
   let login = useSelector((state) => state.login);
 
-  if (login) console.log(login);
+  // if (login) console.log(login);
 
   const [select, setselect] = useState(window.location.pathname);
 
   return (
     <>
-      <div className="navbar-logo">
-        <img height="64px" src={logo}></img>CPC
-      </div>
+      <Link to="/">
+        <div className="navbar-logo">
+          <img src={logo}></img>
+        </div>
+      </Link>
+
       <div className="home-navbar">
         <section
           style={{
@@ -41,14 +44,14 @@ export const Navbar = () => {
         >
           <Link to="/events">Event</Link>
         </section>
-        <section
+        {/* <section
           style={{
             textDecoration: select === "/suggest" ? "underline" : "none",
           }}
           onClick={() => setselect("/suggest")}
         >
           <Link to="/suggest">Suggest</Link>
-        </section>
+        </section> */}
         <section
           style={{
             textDecoration: select === "/roadmap" ? "underline" : "none",

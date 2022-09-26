@@ -3,7 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 18px;
+    padding: 10px 10px;
+}
+
+.navbar-logo > img{
+    height: 64px;
 }
 
 
@@ -34,10 +38,25 @@
     .home-navbar{
         gap : 20px;
     }
+
+    .navbar-logo{
+        padding: 25px 10px;
+    }   
+
+    .navbar-logo > img{
+        height: 32px;
+    }
 }
 
 @media screen and (max-width: 400px) {
     .home-navbar{
         gap : 10px;
+    }
+    .navbar-logo{
+        padding: 25px 10px;
+    }
+
+    .navbar-logo > img{
+        height: 32px;
     }
   }

@@ -1,10 +1,16 @@
 import React, { useState, Fragment, useRef } from "react";
 import { db } from "../Config/DB";
 import "../Styles/EnlivenAdmin.css";
+import validator from "validator";
 import useInput from "../hooks/use-input";
 import Modal from "../UI/Modal";
 
 export const EnlivenAdmin = () => {
+
+  return(
+    <p style = {{textAlign : "center"}}>Under Contruction...</p>
+  );
+  
   const [Message, setMessage] = useState("");
   const [check, setCheck] = useState(false);
   const week = useRef();
@@ -17,7 +23,7 @@ export const EnlivenAdmin = () => {
     valueChangeHandler1: link1ChangeValue,
     inputBlurHandler: link1BlurHandler,
     reset: resetLink1,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => validator.isURL(value.trim()));
 
   const {
     value: link2,
@@ -27,7 +33,7 @@ export const EnlivenAdmin = () => {
     valueChangeHandler1: link2ChangeValue,
     inputBlurHandler: link2BlurHandler,
     reset: resetLink2,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => validator.isURL(value.trim()));
 
   const {
     value: link3,
@@ -37,7 +43,7 @@ export const EnlivenAdmin = () => {
     valueChangeHandler1: link3ChangeValue,
     inputBlurHandler: link3BlurHandler,
     reset: resetLink3,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => validator.isURL(value.trim()));
 
   const {
     value: link4,
@@ -47,7 +53,7 @@ export const EnlivenAdmin = () => {
     valueChangeHandler1: link4ChangeValue,
     inputBlurHandler: link4BlurHandler,
     reset: resetLink4,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => validator.isURL(value.trim()));
 
   const {
     value: link5,
@@ -57,7 +63,7 @@ export const EnlivenAdmin = () => {
     valueChangeHandler1: link5ChangeValue,
     inputBlurHandler: link5BlurHandler,
     reset: resetLink5,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => validator.isURL(value.trim()));
 
   const handleClick2 = () => {
     week.current.focus();
