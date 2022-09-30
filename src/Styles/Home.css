@@ -71,9 +71,14 @@
 
   .codechef-logo {
     position: relative;
-    bottom: -50px;
+    bottom: -43px;
     height: 100px;
+    width: 100px;
     text-align: center;
+  }
+
+  .home-leftcontent {
+    justify-content: start;
   }
 }
 

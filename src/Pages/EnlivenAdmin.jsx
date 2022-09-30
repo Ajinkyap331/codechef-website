@@ -8,8 +8,9 @@ import Modal from "../UI/Modal";
 export const EnlivenAdmin = () => {
 
   return(
-    <p style = {{textAlign : "center"}}>Under Contruction...</p>
+    <h1 style = {{textAlign : "center"}}>Coming Soon...</h1>
   );
+
   
   const [Message, setMessage] = useState("");
   const [check, setCheck] = useState(false);

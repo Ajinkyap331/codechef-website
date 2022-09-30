@@ -9,7 +9,7 @@ import { db } from "../Config/DB";
 export const Enliven = () => {
 
   return(
-    <p style = {{textAlign : "center"}}>Under Contruction...</p>
+    <h1 style = {{textAlign : "center"}}>Coming Soon...</h1>
   );
 
   const { weekno } = useParams();
