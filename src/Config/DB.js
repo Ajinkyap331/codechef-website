@@ -52,7 +52,11 @@ export const loginG = async (setuser) => {
         .signInWithPopup(provider)
         .then((result) => {
             setuser(result.user)
+            document.cookie = `email=${result.user.email}`;
+            document.cookie = `photoURL=${result.user.photoURL}`;
+            document.cookie = `displayName=${result.user.displayName}`;
         })
+
 }
 
 export const db = firebase.firestore();

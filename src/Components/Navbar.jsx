@@ -60,6 +60,9 @@ export const Navbar = () => {
         >
           <Link to="/roadmap">Roadmap2CP</Link>
         </section>
+        {
+          console.log(login.photoURL)
+        }
         <section onClick={() => setselect("/login")}>
           <Link to="/login">
             <Avatar src={login.photoURL !== -1 ? login.photoURL : ""} />

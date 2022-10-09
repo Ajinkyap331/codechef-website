@@ -22,6 +22,9 @@ export const ULogin = () => {
           email: -1,  
         })
       );
+      document.cookie = `email=${-1}`;
+      document.cookie = `photoURL=${-1}`;
+      document.cookie = `displayName=${-1}`;
       setcert([])
     }
     // console.log(_login.email)
@@ -31,8 +34,14 @@ export const ULogin = () => {
           photoURL: _login.photoURL,
           displayName: _login.displayName,
           email: _login.email,
-        })
+        })  
       );
+
+      var d = new Date();
+      d.setTime(d.getTime() + (24*60*60*1000));
+      document.cookie = `email=${_login.email};expires=${d.toUTCString()}`;
+      document.cookie = `photoURL=${_login.photoURL};expires=${d.toUTCString()}`;
+      document.cookie = `displayName=${_login.displayName};expires=${d.toUTCString()}`;
 
       db.collection("users")
       .doc(_login.email)
@@ -95,6 +104,7 @@ export const ULogin = () => {
         )}
         {login.email !== -1 && (
           <>
+            Hello {login.displayName}
             <button
               onClick={() => {
                 logoutG(setlogin);
@@ -103,7 +113,7 @@ export const ULogin = () => {
               Logout
             </button>
             Certificates
-            {/* {console.log(cert)} */}
+            {/* {console.log(_login)} */}
             {cert !== [] &&
               cert.map((e) => {
                 return (

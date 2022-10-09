@@ -24,8 +24,30 @@ import "./Styles/Admin.css";
 import "./Styles/Roadmap.css";
 import "./Styles/Events.css";
 import './Styles/ULogin.css'
+import { useEffect,useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginAction } from "./store/login-slice";
 
 function App() {
+
+  const [initstate, sis] = useState();
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (document.cookie.split("; ")[0].split("=")[1] !== "-1" && document.cookie.split("; ")[0].split("=")[1] !== "") {
+      dispatch(
+        loginAction.addLogin({
+          photoURL : document.cookie.split("; ")[1].includes("photo") ? document.cookie.split("; ")[1].split("=")[1] : document.cookie.split("; ")[2].split("=")[1],
+          displayName: document.cookie.split("; ")[2].includes("display") ? document.cookie.split("; ")[2].split("=")[1] : document.cookie.split("; ")[1].split("=")[1] ,
+          email: document.cookie.split("; ")[0].split("=")[1],
+        })
+      );
+
+    }
+  }, [])  
+
+
   return (
     <Router>
       <Navbar />
@@ -38,7 +60,7 @@ function App() {
           <Route exact path="/admin" element={<Login />} />
           <Route exact path="/login" element={<ULogin />} />
           <Route exact path="/enliven/:weekno" element={<Enliven />} />
-          <Route exact path="/enliven/admin" element={<EnlivenAdmin />} />
+          <Route exact path="/en/admin" element={<EnlivenAdmin />} />
           <Route exact path="/event/:id" element={<Event />}></Route>
           <Route exact path="/register/:id" element={<Register />}></Route>
           <Route exact path="/feedback/:id" element={<Feedback />}></Route>

@@ -1,20 +1,31 @@
-import React, { useState, Fragment, useRef } from "react";
+import React, { useState, Fragment, useRef, useEffect } from "react";
 import { db } from "../Config/DB";
 import "../Styles/EnlivenAdmin.css";
 import validator from "validator";
 import useInput from "../hooks/use-input";
 import Modal from "../UI/Modal";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const EnlivenAdmin = () => {
 
-  return(
-    <h1 style = {{textAlign : "center"}}>Coming Soon...</h1>
-  );
+  let login = useSelector((state) => state.login);
 
   
   const [Message, setMessage] = useState("");
   const [check, setCheck] = useState(false);
   const week = useRef();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(login.email === "-1"){
+        console.log("-1 hai")
+        // navigate("/login");
+    }
+    else if(!login.email[0] == "a" && !login.email[1] == "j"){
+        navigate("/")
+    }
+  }, [])  
 
   const {
     value: link1,
@@ -121,7 +132,6 @@ export const EnlivenAdmin = () => {
     setMessage("");
   };
 
-  console.log(Message);
   const successfullySetTheLink = (
     <React.Fragment>
       <p>Successfully set the links</p>
@@ -218,6 +228,7 @@ export const EnlivenAdmin = () => {
           {Message === "failed" && errorInSettingLinks}
         </Modal>
       )}
+      <br/>
     </Fragment>
   );
 };
