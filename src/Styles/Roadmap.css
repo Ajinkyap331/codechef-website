@@ -188,6 +188,11 @@
   .git-roadmap > div {
     min-width: 32vw;
   }
+
+  .three-lines,
+  .three-lines2 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 680px) {

@@ -6,20 +6,23 @@ import firebase from 'firebase';
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from "react-redux";
+
 
 
 export const Register = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-
-    const [user, setuser] = useState(false)
+    let login = useSelector((state) => state.login);
+    const [user, setuser] = useState(login)
     const [eventData, seteventData] = useState(false)
     const [avail, seta] = useState("")
 
 
 
     useEffect(() => {
+        if(user.email == -1) navigate("/login")
         db.collection("events").doc(id).get().then(doc => {
             if (!doc.exists) {
                 toast.error("No Such Event Exists !", {

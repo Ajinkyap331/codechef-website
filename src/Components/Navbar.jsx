@@ -27,7 +27,7 @@ export const Navbar = () => {
           onClick={() => setselect("/enliven")}
         >
           {" "}
-          <Link to="/enliven/1">ENLIVEN</Link>
+          <Link to="/enliven/1">Enliven</Link>
         </section>
         <section
           style={{ textDecoration: select === "/team" ? "underline" : "none" }}
@@ -60,9 +60,12 @@ export const Navbar = () => {
         >
           <Link to="/roadmap">Roadmap2CP</Link>
         </section>
+        {
+          console.log(login.photoURL)
+        }
         <section onClick={() => setselect("/login")}>
           <Link to="/login">
-            <Avatar src={login.photoURL !== -1 ? login.photoURL : ""} />
+            <Avatar src={login.photoURL}/>
           </Link>
         </section>
       </div>

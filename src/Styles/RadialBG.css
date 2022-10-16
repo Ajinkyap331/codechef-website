@@ -56,10 +56,21 @@
   );
 }
 
+@media screen and (max-width: 1000px){
+  .radial-outer {
+    height: 350px;
+    width: 350px;
+    top: 18vh;
+    position: relative;
+  }
+}
+
 @media screen and (max-width: 680px) {
   .radial-outer {
     min-height: 350px;
     min-width: 350px;
+    top: 10vh;
+    position: relative;
   }
 
   @keyframes radius {

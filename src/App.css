@@ -8,7 +8,7 @@ body {
   width: 100vw;
 }
 
-p {
+p, h1 {
   margin: 0;
   padding: 0;
 }
@@ -96,6 +96,10 @@ p {
   font-size: larger;
 }
 
+.right-event > :first-child{
+  font-size: 2rem;
+}
+
 .register-btn-event, .feedback-btn-event {
   padding: 10px 30px;
   font-weight: bolder;
@@ -152,5 +156,9 @@ p {
 
   .left-event > img {
     width: 60vw;
+  }
+
+  .right-event > :first-child{
+    font-size: 1.5rem;
   }
 }

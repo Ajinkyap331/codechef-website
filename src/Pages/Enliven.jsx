@@ -5,20 +5,26 @@ import useInput from "../hooks/use-input";
 import validator from "validator";
 import { useSelector } from "react-redux";
 import { db } from "../Config/DB";
+import { useRef } from "react";
 
 export const Enliven = () => {
 
   return(
-    <p style = {{textAlign : "center"}}>Under Contruction...</p>
+    <h1 style = {{textAlign : "center"}}>Coming Soon</h1>
   );
 
   const { weekno } = useParams();
   // const [links, setLinks] = useState();
-
   const [week, sw] = useState(parseInt(weekno));
   let navigate = useNavigate();
   let login = useSelector((state) => state.login);
   let { email } = login;
+
+  const p1 = useRef();
+  const p2 = useRef();
+  const p3 = useRef();
+  const p4 = useRef();
+  const p5 = useRef();
 
   const {
     value: link1,
@@ -104,6 +110,8 @@ export const Enliven = () => {
           link4ChangeValue(values === undefined ? "" : values[4]);
           link5ChangeValue(values === undefined ? "" : values[5]);
         });
+
+      // db.collection("enliven").doc() 
     }
   }, [email, week]);
 
@@ -115,10 +123,10 @@ export const Enliven = () => {
 
   return (
     <>
-      <div>Enliven</div>
       <div className="control">
         <h1>Week {week}</h1>
         <div className={link1classes}>
+          <p ref={p1}>Problem 1 : </p>
           <input
             type="text"
             id="link1"
@@ -129,6 +137,7 @@ export const Enliven = () => {
           />
         </div>
         <div className={link2classes}>
+          <p ref={p1}>Problem 2 : </p>
           <input
             type="text"
             id="link2"
@@ -139,6 +148,7 @@ export const Enliven = () => {
           />
         </div>
         <div className={link3classes}>
+          <p ref={p1}>Problem 3 : </p>
           <input
             type="text"
             id="link3"
@@ -149,6 +159,7 @@ export const Enliven = () => {
           />
         </div>
         <div className={link4classes}>
+          <p ref={p1}>Problem 4 : </p>
           <input
             type="text"
             id="link4"
@@ -159,6 +170,7 @@ export const Enliven = () => {
           />
         </div>
         <div className={link5classes}>
+          <p ref={p1}>Problem 5 : </p>
           <input
             type="text"
             id="link5"
