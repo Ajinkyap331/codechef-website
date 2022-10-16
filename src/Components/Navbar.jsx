@@ -65,7 +65,7 @@ export const Navbar = () => {
         }
         <section onClick={() => setselect("/login")}>
           <Link to="/login">
-            <Avatar src={login.photoURL !== -1 ? login.photoURL : ""} />
+            <Avatar src={login.photoURL}/>
           </Link>
         </section>
       </div>

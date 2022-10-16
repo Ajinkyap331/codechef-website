@@ -34,12 +34,14 @@ function App() {
 
   const dispatch = useDispatch()
 
+
   useEffect(() => {
+    if(document.cookie == '') return;
     if (document.cookie.split("; ")[0].split("=")[1] !== "-1" && document.cookie.split("; ")[0].split("=")[1] !== "") {
       dispatch(
         loginAction.addLogin({
-          photoURL : document.cookie.split("; ")[1].includes("photo") ? document.cookie.split("; ")[1].split("=")[1] : document.cookie.split("; ")[2].split("=")[1],
-          displayName: document.cookie.split("; ")[2].includes("display") ? document.cookie.split("; ")[2].split("=")[1] : document.cookie.split("; ")[1].split("=")[1] ,
+          photoURL : document.cookie.split("; ")[1].toString().includes("photo") ? document.cookie.split("; ")[1].split("=")[1] : document.cookie.split("; ")[2].split("=")[1],
+          displayName: document.cookie.split("; ")[2].toString().includes("display") ? document.cookie.split("; ")[2].split("=")[1] : document.cookie.split("; ")[1].split("=")[1] ,
           email: document.cookie.split("; ")[0].split("=")[1],
         })
       );

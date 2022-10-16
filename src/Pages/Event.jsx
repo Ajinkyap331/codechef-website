@@ -39,8 +39,8 @@ export const Event = () => {
         <div className='events-playarea'>   
             <EventPoster eventData={eventData}/>
             <div className='right-event'>
-                <div>Name : {eventData.name}</div>
-                <div>Description : {eventData.desc}</div>
+                <div>{eventData.name}</div>
+                <div>{eventData.desc}</div>
                 <div>Date : {eventData.date}</div>
                 {
                     eventData.upcoming ?

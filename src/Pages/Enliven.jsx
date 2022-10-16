@@ -8,9 +8,13 @@ import { db } from "../Config/DB";
 import { useRef } from "react";
 
 export const Enliven = () => {
+
+  return(
+    <h1 style = {{textAlign : "center"}}>Coming Soon</h1>
+  );
+
   const { weekno } = useParams();
   // const [links, setLinks] = useState();
-
   const [week, sw] = useState(parseInt(weekno));
   let navigate = useNavigate();
   let login = useSelector((state) => state.login);
@@ -107,7 +111,7 @@ export const Enliven = () => {
           link5ChangeValue(values === undefined ? "" : values[5]);
         });
 
-      // db.collection("enliven").doc()
+      // db.collection("enliven").doc() 
     }
   }, [email, week]);
 
