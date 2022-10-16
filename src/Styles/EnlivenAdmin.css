@@ -1,0 +1,84 @@
+.control h1 {
+  margin-top: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.fetching {
+  margin-top: 2%;
+}
+
+.fetching input {
+  margin-left: 40%;
+  align-items: center;
+  line-height: 20px;
+  vertical-align: middle;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.fetching input:hover {
+  border: 2px solid #5de686;
+}
+
+.fetching button {
+  font: initial;
+  cursor: pointer;
+  border: 3px solid #5de686;
+  background-color: #fff;
+  margin-left: 1%;
+  font-weight: bold;
+  padding: 0.3rem 1.5rem;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+
+.fetching button:hover {
+  background: #5de686;
+  border: 2px solid #5de686;
+  color: #ffffff;
+}
+
+.control input {
+  display: flex;
+  flex-direction: column;
+  width: 70rem;
+  margin: 2rem auto;
+  border-radius: 20px;
+  padding: 1.2rem;
+  border: 1px solid #5de686;
+  font-size: larger;
+}
+
+.control input:hover {
+  border: 3px solid #5de686;
+}
+
+.control button {
+  font: initial;
+  display: grid;
+  cursor: pointer;
+  border: 3px solid #5de686;
+  color: #000000;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  margin: auto;
+}
+
+.control button:hover {
+  background: #5de686;
+  border: 3px solid #5de686;
+  color: #ffffff;
+}
+
+.invalid input {
+  border: 3px solid #b40e0e;
+  background-color: #fddddd;
+}
+
+.invalid input:focus,
+.invalid input:hover {
+  border-color: #ff8800;
+  background-color: #fbe8d2;
+}
