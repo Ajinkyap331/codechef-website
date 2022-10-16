@@ -23,32 +23,42 @@ import "./Styles/Login.css";
 import "./Styles/Admin.css";
 import "./Styles/Roadmap.css";
 import "./Styles/Events.css";
-import './Styles/ULogin.css'
-import { useEffect,useState } from "react";
+import "./Styles/ULogin.css";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginAction } from "./store/login-slice";
 
+const getCookie = (name) => {
+  var cookieArr = document.cookie.split(";");
+
+  for (var i = 0; i < cookieArr.length; i++) {
+    var cookiePair = cookieArr[i].split("=");
+
+    if (name === cookiePair[0].trim()) {
+      return decodeURIComponent(cookiePair[1]);
+    }
+  }
+  return null;
+};
+
 function App() {
+  // const [initstate, sis] = useState();
 
-  const [initstate, sis] = useState();
-
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if(document.cookie == '') return;
-    if (document.cookie.split("; ")[0].split("=")[1] !== "-1" && document.cookie.split("; ")[0].split("=")[1] !== "") {
+    if (document.cookie === "") return;
+    if (getCookie("displayName") != -1) {
       dispatch(
         loginAction.addLogin({
-          photoURL : document.cookie.split("; ")[1].toString().includes("photo") ? document.cookie.split("; ")[1].split("=")[1] : document.cookie.split("; ")[2].split("=")[1],
-          displayName: document.cookie.split("; ")[2].toString().includes("display") ? document.cookie.split("; ")[2].split("=")[1] : document.cookie.split("; ")[1].split("=")[1] ,
-          email: document.cookie.split("; ")[0].split("=")[1],
+          key: getCookie("key"),
+          photoURL: getCookie("photoURL"),
+          displayName: getCookie("displayName"),
+          email: getCookie("email"),
         })
       );
-
     }
-  }, [])  
-
+  }, []);
 
   return (
     <Router>
