@@ -2,11 +2,12 @@ import React, { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { loginG } from '../Config/DB';
 import { db } from '../Config/DB';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from "react-redux";
+import { FieldValue } from 'firebase/firestore';
 
 
 
@@ -57,7 +58,7 @@ export const Register = () => {
 
     const sendMyInterest = () => {
         db.collection("register").doc(eventData.id.toString()).update({
-            users: firebase.firestore.FieldValue.arrayUnion(user.email)
+            users: FieldValue.arrayUnion(user.email)
         }).then(() => {
             toast.success("Registered Successfully !", {
                 position: toast.POSITION.TOP_CENTER,
@@ -65,7 +66,7 @@ export const Register = () => {
             });
         }).catch(() => {
             db.collection("register").doc(eventData.id.toString()).set({
-                users: firebase.firestore.FieldValue.arrayUnion(user.email)
+                users: FieldValue.arrayUnion(user.email)
             }).then(() => {
                 toast.success("Registered Successfully !", {
                     position: toast.POSITION.TOP_CENTER,
