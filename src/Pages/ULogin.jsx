@@ -6,10 +6,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { db } from "../Config/DB";
+import "../Styles/ULogin.css";
+import Google from "../Images/google.svg";
 
 export const ULogin = () => {
   const navigate = useNavigate();
   let login = useSelector((state) => state.login);
+  console.log(login);
   const [_login, setlogin] = useState(login);
   const [cert, setcert] = useState([]);
 
@@ -17,45 +20,45 @@ export const ULogin = () => {
     if (_login === "logout") {
       dispatch(
         loginAction.addLogin({
-          photoURL: -1, 
+          photoURL: -1,
           displayName: -1,
-          email: -1,  
+          email: -1,
         })
       );
       document.cookie = `email=${-1}`;
       document.cookie = `photoURL=${-1}`;
       document.cookie = `displayName=${-1}`;
-      setcert([])
+      setcert([]);
     }
     // console.log(_login.email)
-     else if (_login.email !== -1) {
+    else if (_login.email !== -1) {
       dispatch(
         loginAction.addLogin({
           photoURL: _login.photoURL,
           displayName: _login.displayName,
           email: _login.email,
-        })  
+        })
       );
 
       var d = new Date();
-      d.setTime(d.getTime() + (24*60*60*1000));
+      d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
       document.cookie = `email=${_login.email};expires=${d.toUTCString()}`;
-      document.cookie = `photoURL=${_login.photoURL};expires=${d.toUTCString()}`;
-      document.cookie = `displayName=${_login.displayName};expires=${d.toUTCString()}`;
+      document.cookie = `photoURL=${
+        _login.photoURL
+      };expires=${d.toUTCString()}`;
+      document.cookie = `displayName=${
+        _login.displayName
+      };expires=${d.toUTCString()}`;
 
       db.collection("users")
-      .doc(_login.email)
+        .doc(_login.email)
         .collection("Certificates")
         .doc("all")
         .get()
         .then((e) => {
           setcert(e.data().Array);
         });
-
-    }   
-
-
-
+    }
 
     // if (_login === "") {
     //   dispatch(
@@ -99,12 +102,12 @@ export const ULogin = () => {
               loginG(setlogin);
             }}
           >
-            Login
+            <img src={Google} width="20px" height="20px" /> Login with Google
           </button>
         )}
         {login.email !== -1 && (
           <>
-            Hello {login.displayName}
+            <h1>Hello, {login.displayName}</h1>
             <button
               onClick={() => {
                 logoutG(setlogin);
@@ -117,7 +120,7 @@ export const ULogin = () => {
             {cert !== [] &&
               cert.map((e) => {
                 return (
-                  <a className = "certificate-download" href={e} target="_blank">
+                  <a className="certificate-download" href={e} target="_blank">
                     Download Certificate
                   </a>
                 );

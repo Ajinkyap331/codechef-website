@@ -19,7 +19,7 @@ import "./Styles/Team.css";
 import "./Styles/Navbar.css";
 import "./Styles/RadialBG.css";
 import "./Styles/RightData.css";
-import "./Styles/Login.css";
+// import "./Styles/Login.css";
 import "./Styles/Admin.css";
 import "./Styles/Roadmap.css";
 import "./Styles/Events.css";
