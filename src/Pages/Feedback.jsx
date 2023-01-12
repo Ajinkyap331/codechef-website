@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { db } from '../Config/DB';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import { useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const Feedback = () => {
@@ -14,11 +15,14 @@ export const Feedback = () => {
   const suggest = useRef()
   const pnumber = useRef()
 
+  let login = useSelector((state) => state.login);
+  const [user, setuser] = useState(login)
   const [eventData, seteventData] = useState(false)
-  const [user, setuser] = useState(false)
+  // const [user, setuser] = useState(false)
   const [avail, seta] = useState("")
 
   useEffect(() => {
+    if(user.email == -1) navigate("/login")
     db.collection("events").doc(id).get().then(doc => {
       if (!doc.exists) {
         toast.error("No Such Event Exists !", {
